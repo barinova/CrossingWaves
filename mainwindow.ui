@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>783</width>
+    <height>517</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Crossing Waves</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>761</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Imput Parametres</string>
+     </attribute>
+     <widget class="QPushButton" name="calculateButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>10</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Calculate</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="openButton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>40</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>10</y>
+        <width>241</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>201</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="columnCount">
+       <number>2</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Sec</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Shift</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="browseButton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>10</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Browse</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="fileNameEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>231</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Result Parametres</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidgetResults">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>741</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>A+</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>A-</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>H</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Position</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Asymmetry(Vert)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Asymmetry(Hor)</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Graph of Results</string>
+     </attribute>
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>731</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>783</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
