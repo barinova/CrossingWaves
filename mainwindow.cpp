@@ -29,7 +29,7 @@ void MainWindow::on_openButton_clicked()
     ui->tableWidget->clearContents();
    if(!ui->fileNameEdit->text().isNull())
    {
-       if(wave->ReadingFile(ui->fileNameEdit->text().toStdString()))
+       if(wave->readingFile(ui->fileNameEdit->text().toStdString()))
        {
            for(int i(0); i < wave->parametres.size(); i++)
            {
@@ -47,7 +47,7 @@ void MainWindow::on_openButton_clicked()
 void MainWindow::on_calculateButton_clicked()
 {
     QString str;
-    wave->CalculatingWaves();
+    wave->calculateWaves();
     ui->tableWidgetResults->clearContents();
     for(int i(0); i < wave->calculatingWaves.size(); i++)
     {
@@ -88,19 +88,51 @@ void MainWindow::getGraph()
     {
         first = wave->parametres.at(i);
         second = wave->parametres.at(i+1);
-        scene->addLine(first.sec * 10, - first.shift * 10, second.sec * 10, -second.shift * 10, pen);
-        scene->addLine(first.sec * 10, -2, first.sec * 10, 2, axis);
+        scene->addLine(first.sec * 40, - first.shift * 40, second.sec * 40, -second.shift * 40, pen);
+        scene->addLine(first.sec * 40, -2, first.sec * 40, 2, axis);
     }
     scene->addLine( 0,- scene->height() , 0, scene->height(), axis);
     addLines(scene->height()/2, second.sec, axis, scene);
 
+    renderingTroughsAndRidges(scene);
 }
 
-void MainWindow::addLines(int height, int width, QPen axis, QGraphicsScene* scene)
+void MainWindow::addLines(float height, float width, QPen axis, QGraphicsScene* scene)
 {
     for(int i(0); i < height; i+=10)
     {
-        scene->addLine( 0, i, width * 10, i, axis);
-        scene->addLine( 0, -i, width * 10, -i, axis);
+        scene->addLine( 0, i * 40, width * 40, i * 40, axis);
+        scene->addLine( 0, -i * 40, width * 40, -i * 40, axis);
+    }
+}
+
+void MainWindow::addText(QGraphicsScene *scene, float x, float y)
+{
+    QGraphicsTextItem * text = new QGraphicsTextItem;
+    text->setPos(x * 40 + 5 , - y * 40/1.5);
+    text->adjustSize();
+    text->setPlainText(QString::number(y));
+    scene->addItem(text);
+}
+
+void MainWindow::renderingTroughsAndRidges(QGraphicsScene* scene)
+{
+    QPen line;
+    waveEntity param;
+    line.setColor(Qt::gray);
+    line.setWidth(1);
+    for(int i(0); i  < wave->calculatingWaves.size(); i++)
+    {
+        param =  wave->calculatingWaves.at(i);
+        if(param.ridge > param.trough)
+        {
+            scene->addLine(param.ridge * 40, 0, param.ridge * 40 , - param.amplMax * 40, line);
+            addText(scene, param.ridge, param.amplMax);
+        }
+        else
+        {
+            scene->addLine(param.trough * 40, 0, param.trough * 40, - param.amplMin * 40, line);
+            addText(scene, param.trough, param.amplMin);
+        }
     }
 }

@@ -20,9 +20,12 @@ struct waveEntity
     float amplMax;
     float amplMin;
     float totalHeight;
+    float sec;
     float verticalAsummetry;
     float horizontalAsymmetry;
     float nullPoint[3];
+    float trough;
+    float ridge;
 };
 
 class CCrossingWave
@@ -33,12 +36,12 @@ public:
     std::map<int, waveParametres> parametres;
     std::map<int, waveEntity> calculatingWaves;
     CCrossingWave();
-    bool ReadingFile(std::string pathToFile);
-    bool CalculatingWaves();
+    bool readingFile(std::string pathToFile);
+    bool calculateWaves();
 
 private:
-    void DataToTable(std::string sec, std::string shift);
-    waveEntity GetSingleWave(int i, typeCrossing type, int parametresSize);
+    void dataToTable(std::string sec, std::string shift);
+    waveEntity getSingleWave(int i, typeCrossing type, int parametresSize);
     float getNullPoint(waveParametres fistPoint, waveParametres secondPoint);
     void amplMin(waveParametres point, waveEntity &wave);
     void amplMax(waveParametres point, waveEntity &wave);

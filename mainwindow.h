@@ -7,6 +7,7 @@
 #include <QPainter>
 #include <QPointF>
 #include <QSystemTrayIcon>
+#include <QGraphicsTextItem>
 #include "ui_mainwindow.h"
 
 namespace Ui {
@@ -32,7 +33,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void getGraph();
-    void addLines(int height, int width, QPen axis, QGraphicsScene *scene);
+    void addLines(float height, float width, QPen axis, QGraphicsScene *scene);
+    void renderingTroughsAndRidges(QGraphicsScene *scene);
+    void addText(QGraphicsScene *scene, float x, float y);
 };
 
 #endif // MAINWINDOW_H

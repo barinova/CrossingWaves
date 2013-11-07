@@ -8,7 +8,7 @@ CCrossingWave::CCrossingWave()
 {
 }
 
-bool CCrossingWave::ReadingFile(std::string pathToFile)
+bool CCrossingWave::readingFile(std::string pathToFile)
 {
     std::ifstream fileName(pathToFile.c_str());
     std::string sec, shift, line;
@@ -17,7 +17,7 @@ bool CCrossingWave::ReadingFile(std::string pathToFile)
         std::stringstream   linestream(line);
         getline(linestream, sec, '\t');
         getline(linestream, shift, '\n');
-        DataToTable(sec, shift);
+        dataToTable(sec, shift);
     }
     if(!(sec.empty() && shift.empty()))
         return true;
@@ -26,7 +26,7 @@ bool CCrossingWave::ReadingFile(std::string pathToFile)
 }
 
 
-void CCrossingWave::DataToTable(std::string sec, std::string shift)
+void CCrossingWave::dataToTable(std::string sec, std::string shift)
 {
     waveParametres param;
     param.sec = ::atof(sec.c_str());
@@ -44,6 +44,7 @@ void CCrossingWave::amplMax(waveParametres point, waveEntity &wave)
     if(point.shift > wave.amplMax)
     {
         wave.amplMax = point.shift;
+        wave.ridge = point.sec;
     }
 }
 
@@ -52,10 +53,11 @@ void CCrossingWave::amplMin(waveParametres point, waveEntity &wave)
     if(point.shift < wave.amplMin)
     {
         wave.amplMin = point.shift;
+        wave.trough = point.sec;
     }
 }
 
-waveEntity CCrossingWave::GetSingleWave(int i, typeCrossing type, int parametresSize)
+waveEntity CCrossingWave::getSingleWave(int i, typeCrossing type, int parametresSize)
 {
     int k = 0;
     waveParametres currentPoint;
@@ -85,12 +87,11 @@ waveEntity CCrossingWave::GetSingleWave(int i, typeCrossing type, int parametres
     wave.verticalAsummetry = fabs(wave.amplMax / wave.amplMin);
     wave.horizontalAsymmetry = (wave.nullPoint[1] - wave.nullPoint[0])/ (wave.nullPoint[2] - wave.nullPoint[1]);
     wave.totalHeight = fabs(wave.amplMax) + fabs(wave.amplMin);
-
     return wave;
 }
 
 
-bool CCrossingWave::CalculatingWaves()
+bool CCrossingWave::calculateWaves()
 {
     int parametresSize = parametres.size();
     waveParametres first, second;
@@ -112,7 +113,7 @@ bool CCrossingWave::CalculatingWaves()
             {
                 type = ZUC;
             }
-            newWave = GetSingleWave(i, type, parametresSize - 1);
+            newWave = getSingleWave(i, type, parametresSize - 1);
             if(newWave.totalHeight == NULL)
                    return true;
             calculatingWaves.insert(std::make_pair(calculatingWaves.size(), newWave));
