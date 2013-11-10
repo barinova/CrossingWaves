@@ -87,9 +87,30 @@ waveEntity CCrossingWave::getSingleWave(int i, typeCrossing type, int parametres
     wave.verticalAsummetry = fabs(wave.amplMax / wave.amplMin);
     wave.horizontalAsymmetry = (wave.nullPoint[1] - wave.nullPoint[0])/ (wave.nullPoint[2] - wave.nullPoint[1]);
     wave.totalHeight = fabs(wave.amplMax) + fabs(wave.amplMin);
+
+    if(wave.type == ZDC)
+    {
+        listHeihtsZDC.append(wave.totalHeight);
+    }
+    else
+    {
+        listHeihtsZUC.append(wave.totalHeight);
+    }
     return wave;
 }
 
+float CCrossingWave::significantHeights(QList<float> listHeights)
+{
+    int size;
+    float heightSignificant;
+    size = 2 * listHeights.size()/3;
+    qSort(listHeights.begin(), listHeights.end());
+    for(int i(size); i < listHeights.size(); i++)
+    {
+        heightSignificant += listHeights.at(i);
+    }
+    return (heightSignificant/size * 2);
+}
 
 bool CCrossingWave::calculateWaves()
 {

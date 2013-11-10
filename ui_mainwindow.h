@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon 4. Nov 23:45:16 2013
+** Created: Sun 10. Nov 21:51:56 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,6 +16,7 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QGraphicsView>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
@@ -23,6 +24,7 @@
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
 #include <QtGui/QTableWidget>
+#include <QtGui/QTextBrowser>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 
@@ -43,6 +45,15 @@ public:
     QTableWidget *tableWidgetResults;
     QWidget *tab_3;
     QGraphicsView *graphicsView;
+    QWidget *tab_4;
+    QLabel *label;
+    QLabel *label_2;
+    QGraphicsView *graphicsViewZDC;
+    QGraphicsView *graphicsViewZUC;
+    QLabel *label_3;
+    QLabel *label_4;
+    QTextBrowser *textBrowserSignificantZDC;
+    QTextBrowser *textBrowserSignificantZUC;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -51,12 +62,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(783, 517);
+        MainWindow->resize(875, 517);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(0, 0, 761, 471));
+        tabWidget->setGeometry(QRect(0, 0, 861, 471));
         tabWidget->setTabPosition(QTabWidget::North);
         tabWidget->setTabShape(QTabWidget::Rounded);
         tabWidget->setElideMode(Qt::ElideNone);
@@ -117,13 +128,47 @@ public:
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
         graphicsView = new QGraphicsView(tab_3);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 10, 731, 431));
+        graphicsView->setGeometry(QRect(10, 10, 831, 431));
         graphicsView->setFrameShape(QFrame::StyledPanel);
+        graphicsView->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         tabWidget->addTab(tab_3, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        label = new QLabel(tab_4);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(10, 10, 171, 16));
+        label_2 = new QLabel(tab_4);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(10, 230, 161, 16));
+        graphicsViewZDC = new QGraphicsView(tab_4);
+        graphicsViewZDC->setObjectName(QString::fromUtf8("graphicsViewZDC"));
+        graphicsViewZDC->setGeometry(QRect(10, 30, 731, 192));
+        graphicsViewZDC->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        graphicsViewZUC = new QGraphicsView(tab_4);
+        graphicsViewZUC->setObjectName(QString::fromUtf8("graphicsViewZUC"));
+        graphicsViewZUC->setGeometry(QRect(10, 250, 731, 192));
+        graphicsViewZUC->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_3 = new QLabel(tab_4);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(750, 30, 91, 21));
+        label_4 = new QLabel(tab_4);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(750, 250, 91, 21));
+        textBrowserSignificantZDC = new QTextBrowser(tab_4);
+        textBrowserSignificantZDC->setObjectName(QString::fromUtf8("textBrowserSignificantZDC"));
+        textBrowserSignificantZDC->setGeometry(QRect(750, 50, 81, 21));
+        textBrowserSignificantZDC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        textBrowserSignificantZDC->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        textBrowserSignificantZUC = new QTextBrowser(tab_4);
+        textBrowserSignificantZUC->setObjectName(QString::fromUtf8("textBrowserSignificantZUC"));
+        textBrowserSignificantZUC->setGeometry(QRect(750, 270, 81, 21));
+        textBrowserSignificantZUC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        textBrowserSignificantZUC->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tabWidget->addTab(tab_4, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 783, 21));
+        menuBar->setGeometry(QRect(0, 0, 875, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -134,7 +179,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -167,6 +212,11 @@ public:
         ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Asymmetry(Hor)", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Result Parametres", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Graph of Results", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "-down-zero-crossing wave heights", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("MainWindow", "-up-zero-crossing wave heights", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainWindow", "Significant Height", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("MainWindow", "Significant Height", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Diagram", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

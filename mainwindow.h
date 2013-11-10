@@ -33,9 +33,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void getGraph();
-    void addLines(float height, float width, QPen axis, QGraphicsScene *scene);
+    void addLines(float height, float width, QGraphicsScene *scene);
     void renderingTroughsAndRidges(QGraphicsScene *scene);
     void addText(QGraphicsScene *scene, float x, float y);
+    void diagramHeights();
 };
 
 #endif // MAINWINDOW_H

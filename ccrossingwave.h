@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <math.h>
+#include <QList>
 
 enum typeCrossing { ZDC, ZUC};
 
@@ -31,13 +32,14 @@ struct waveEntity
 class CCrossingWave
 {
 public:
-    //CCrossingWave();
-    //std::list<waveParametres> listParametres;
+    QList<float>listHeihtsZDC;
+    QList<float> listHeihtsZUC;
     std::map<int, waveParametres> parametres;
     std::map<int, waveEntity> calculatingWaves;
     CCrossingWave();
     bool readingFile(std::string pathToFile);
     bool calculateWaves();
+    float significantHeights(QList<float> listHeights);
 
 private:
     void dataToTable(std::string sec, std::string shift);
