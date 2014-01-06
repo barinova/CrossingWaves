@@ -99,7 +99,7 @@ waveEntity CCrossingWave::getSingleWave(int i, typeCrossing type, int parametres
     return wave;
 }
 
-float CCrossingWave::significantHeights(QList<float> listHeights)
+float CCrossingWave::heightOneThird(QList<float> listHeights)
 {
     int size;
     float heightSignificant;
@@ -110,6 +110,30 @@ float CCrossingWave::significantHeights(QList<float> listHeights)
         heightSignificant += listHeights.at(i);
     }
     return (heightSignificant/size * 2);
+}
+
+float CCrossingWave::significantHeights(QList<float> listHeights)
+{
+    float heightSignificant;
+    for(int i(0); i < listHeights.size(); i++)
+    {
+        heightSignificant += listHeights.at(i);
+    }
+    return (4.04*heightSignificant/listHeights.count());
+}
+
+void CCrossingWave::setHeights()
+{
+    heights zuc, zdc;
+    zdc.type = ZDC;
+    zdc.significantHeight = significantHeights(listHeihtsZDC);
+    zdc.heightOneThird = heightOneThird(listHeihtsZDC);
+    h.append(zdc);
+
+    zuc.type = ZUC;
+    zuc.significantHeight = significantHeights(listHeihtsZUC);
+    zuc.heightOneThird = heightOneThird(listHeihtsZUC);
+    h.append(zuc);
 }
 
 bool CCrossingWave::calculateWaves()
@@ -136,9 +160,42 @@ bool CCrossingWave::calculateWaves()
             }
             newWave = getSingleWave(i, type, parametresSize - 1);
             if(newWave.totalHeight == NULL)
-                   return true;
+            {
+                setHeights();
+                return true;
+            }
             calculatingWaves.insert(std::make_pair(calculatingWaves.size(), newWave));
         }
     }
     return true;
+}
+
+void CCrossingWave::setProbabilities()
+{
+    this->setListProbabilities(listHeihtsZDC, ZDC);
+    this->setListProbabilities(listHeihtsZUC, ZUC);
+}
+
+void CCrossingWave::setListProbabilities(QList<float> listHeights, typeCrossing type)
+{
+    probability obj;
+    float N, waveFrequency;
+    N = listHeights.size();
+    qSort(listHeights.begin(), listHeights.end());
+
+    for(int i(0); i < listHeights.size(); i++)
+    {
+        waveFrequency = (N-i)/N;
+        obj.H = listHeights.at(i);
+        obj.P = waveFrequency;
+        obj.teorP = exp(-((double)(obj.H * obj.H/8*pow((double)h.at(type).significantHeight,2))));
+        if(type == ZDC)
+        {
+            listProbabilitiesZDC.append(obj);
+        }
+        else
+        {
+            listProbabilitiesZUC.append(obj);
+        }
+    }
 }

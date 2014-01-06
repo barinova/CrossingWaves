@@ -9,6 +9,7 @@
 #include <QSystemTrayIcon>
 #include <QGraphicsTextItem>
 #include "ui_mainwindow.h"
+#include <math.h>
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +38,15 @@ private:
     void renderingTroughsAndRidges(QGraphicsScene *scene);
     void addText(QGraphicsScene *scene, float x, float y);
     void diagramHeights();
+    void setTableWidgetResults();
+    void renderingProbability();
+    void renderingProbabilityList(QList<probability> list, QGraphicsView *graphTeor, QGraphicsView *graphTeorLog, QGraphicsView *graphExper, QGraphicsView *graphExperLog, int type);
+    void getProbNormalGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param);
+    void getProbLogGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param);
+    void addGraphicsAxis(QGraphicsScene* scene, QString strX, QString strY, int y);
+    void renderCloudsAsimetry();
+    void addGraphicsLittleLines(QGraphicsScene* scene);
 };
+
 
 #endif // MAINWINDOW_H
