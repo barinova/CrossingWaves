@@ -8,6 +8,7 @@
 #include <QPointF>
 #include <QSystemTrayIcon>
 #include <QGraphicsTextItem>
+#include <QDebug>
 #include "ui_mainwindow.h"
 #include <math.h>
 

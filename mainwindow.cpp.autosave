@@ -250,16 +250,6 @@ void MainWindow::renderingProbabilityList(QList<probability> list,QGraphicsView*
         getProbLogGraph(sceneLogExper, prevExperLog, pExper, param);
     }
 
-    //adding axis and text
-    //sceneLogTeor->addLine(0, 0, sceneLogTeor->width(), 0, axis);
-    //sceneTeor->addLine(0, 0, sceneTeor->width(), 0, axis);
-    //sceneLogExper->addLine(0, 0, sceneLogExper->width(), 0, axis);
-    //sceneExper->addLine(0, 0, sceneExper->width(), 0, axis);
-
-   // sceneLogTeor->addLine(0, - 30, 0, 70, axis);
-   // sceneTeor->addLine(0, - 70, 0, 30, axis);
-   // sceneLogExper->addLine(0, - 30, 0, 70, axis);
-   // sceneExper->addLine(0, - 70, 0, 30, axis);
 
     //sign axis
     addGraphicsAxis(sceneLogTeor, "H", "lg(P)", sceneLogTeor->height()/2 - 20);
