@@ -12,6 +12,8 @@ bool CCrossingWave::readingFile(std::string pathToFile)
 {
     std::ifstream fileName(pathToFile.c_str());
     std::string sec, shift, line;
+    //create new starting func
+    clearAll();
     while(getline(fileName, line))
     {
         std::stringstream   linestream(line);
@@ -25,6 +27,16 @@ bool CCrossingWave::readingFile(std::string pathToFile)
         return false;
 }
 
+void CCrossingWave::clearAll()
+{
+    this->calculatingWaves.clear();
+    this->h.clear();
+    this->listHeihtsZDC.clear();
+    this->listHeihtsZUC.clear();
+    this->listProbabilitiesZDC.clear();
+    this->listProbabilitiesZUC.clear();
+    this->parametres.clear();
+}
 
 void CCrossingWave::dataToTable(std::string sec, std::string shift)
 {
@@ -103,23 +115,27 @@ float CCrossingWave::heightOneThird(QList<float> listHeights)
 {
     int size;
     float heightSignificant;
-    size = 2 * listHeights.size()/3;
+    size = 2 * (listHeights.count()/3);
+    float tmp = listHeights.count() - size;
     qSort(listHeights.begin(), listHeights.end());
-    for(int i(size); i < listHeights.size(); i++)
+    for(int i(size); i < listHeights.count(); i++)
     {
         heightSignificant += listHeights.at(i);
     }
-    return (heightSignificant/size * 2);
+    return (heightSignificant/(listHeights.count() - size));
 }
 
 float CCrossingWave::significantHeights(QList<float> listHeights)
 {
+    float tmp = listHeights.count();
     float heightSignificant;
-    for(int i(0); i < listHeights.size(); i++)
+    for(int i(0); i < listHeights.count(); i++)
     {
         heightSignificant += listHeights.at(i);
     }
-    return (4.04*heightSignificant/listHeights.count());
+
+    tmp = heightSignificant/listHeights.count();
+    return sqrt(4.04*heightSignificant/listHeights.count());
 }
 
 void CCrossingWave::setHeights()
@@ -142,8 +158,7 @@ bool CCrossingWave::calculateWaves()
     waveParametres first, second;
     waveEntity newWave;
     for(int i(0); i < parametresSize; i++)
-    //for (std::list<waveParametres>::iterator it = wave->listParametres.begin(); it != wave->listParametres.end(); it++)
-    {
+   {
         first = parametres.at(i);
         second = parametres.at(i+1);
         if(first.shift * second.shift < 0)
@@ -182,15 +197,19 @@ void CCrossingWave::setListProbabilities(QList<float> listHeights, typeCrossing 
     float N, waveFrequency;
     N = listHeights.size();
     qSort(listHeights.begin(), listHeights.end());
-
+    qDebug("Pteor exp(-H^2/(8*Hsign^2))\n", obj.teorP, obj.H, h.at(type).significantHeight);
+    //qDebug("P  i/N");
     for(int i(0); i < listHeights.size(); i++)
     {
         waveFrequency = (N-i)/N;
         obj.H = listHeights.at(i);
         obj.P = waveFrequency;
-        obj.teorP = exp(-((double)(obj.H * obj.H/8*pow((double)h.at(type).significantHeight,2))));
+        obj.teorP = exp(-obj.H * obj.H/(8*pow(h.at(type).significantHeight,2)));
         if(type == ZDC)
         {
+
+            //qDebug("%f %f/%f\n",waveFrequency, floor(N-i),floor(N));
+            qDebug("%f exp(-%f^2/(8*%f^2))\n", obj.teorP, obj.H, h.at(type).significantHeight);
             listProbabilitiesZDC.append(obj);
         }
         else

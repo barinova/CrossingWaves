@@ -12,6 +12,8 @@
 #include "ui_mainwindow.h"
 #include <math.h>
 
+enum typeDelta{ X, Y};
+
 namespace Ui {
 class MainWindow;
 }
@@ -37,7 +39,7 @@ private:
     void getGraph();
     void addLines(float height, float width, QGraphicsScene *scene);
     void renderingTroughsAndRidges(QGraphicsScene *scene);
-    void addText(QGraphicsScene *scene, float x, float y);
+    void addText(QGraphicsScene *scene, float x, float y, QString label, Qt::GlobalColor color, double size);
     void diagramHeights();
     void setTableWidgetResults();
     void renderingProbability();
@@ -47,6 +49,8 @@ private:
     void addGraphicsAxis(QGraphicsScene* scene, QString strX, QString strY, int y);
     void renderCloudsAsimetry();
     void addGraphicsLittleLines(QGraphicsScene* scene);
+    void addGraphicsOrtLine(QGraphicsScene *scene, int point, typeDelta delta, Qt::GlobalColor color, QString label, int width);
+    template <typename T> int sign(T val);
 };
 
 

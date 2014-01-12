@@ -59,6 +59,7 @@ public:
     void setProbabilities();
 
 private:
+    void clearAll();
     void dataToTable(std::string sec, std::string shift);
     waveEntity getSingleWave(int i, typeCrossing type, int parametresSize);
     float getNullPoint(waveParametres fistPoint, waveParametres secondPoint);

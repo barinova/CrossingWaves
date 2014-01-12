@@ -376,6 +376,58 @@
        <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
      </widget>
+     <widget class="QLineEdit" name="lineZDC">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>60</y>
+        <width>51</width>
+        <height>2</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineZDCSign">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>110</y>
+        <width>51</width>
+        <height>2</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineZUC">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>280</y>
+        <width>51</width>
+        <height>2</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineZUCSign">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>330</y>
+        <width>51</width>
+        <height>2</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_6">
      <attribute name="title">
@@ -484,17 +536,6 @@
         <string>experimental exceedance probability</string>
        </property>
       </widget>
-      <zorder>label_7</zorder>
-      <zorder>label_8</zorder>
-      <zorder>graphicsViewExceedingZDCLogTeor</zorder>
-      <zorder>graphicsViewExceedingZDCLogExper</zorder>
-      <zorder>graphicsViewExceedingZDCTeor</zorder>
-      <zorder>graphicsViewExceedingZDCExper</zorder>
-      <zorder>label_15</zorder>
-      <zorder>graphicsViewExceedingZUCTeor</zorder>
-      <zorder>graphicsViewExceedingZUCExper</zorder>
-      <zorder>graphicsViewExceedingZUCLogTeor</zorder>
-      <zorder>graphicsViewExceedingZUCLogExper</zorder>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
@@ -586,13 +627,6 @@
         <string>experimental exceedance probability</string>
        </property>
       </widget>
-      <zorder>graphicsViewExceedingZUCLogExper</zorder>
-      <zorder>graphicsViewExceedingZUCLogTeor</zorder>
-      <zorder>graphicsViewExceedingZUCExper</zorder>
-      <zorder>graphicsViewExceedingZUCTeor</zorder>
-      <zorder>groupBox</zorder>
-      <zorder>label_13</zorder>
-      <zorder>label_14</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
@@ -615,9 +649,9 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>40</y>
          <width>401</width>
-         <height>241</height>
+         <height>251</height>
         </rect>
        </property>
       </widget>
@@ -625,12 +659,43 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>330</y>
+         <y>320</y>
          <width>401</width>
-         <height>241</height>
+         <height>251</height>
         </rect>
        </property>
       </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>181</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Vertical Asymmetry</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>300</y>
+         <width>181</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Hoizontal Asymmetry</string>
+       </property>
+      </widget>
+      <zorder>graphicsViewCloudsZDCA</zorder>
+      <zorder>graphicsViewCloudsZDCL</zorder>
+      <zorder>graphicsViewCloudsZUCA</zorder>
+      <zorder>label_9</zorder>
+      <zorder>label_11</zorder>
      </widget>
      <widget class="QGroupBox" name="groupBox_4">
       <property name="geometry">
@@ -648,9 +713,9 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>40</y>
          <width>401</width>
-         <height>241</height>
+         <height>251</height>
         </rect>
        </property>
       </widget>
@@ -658,10 +723,36 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>330</y>
+         <y>320</y>
          <width>401</width>
-         <height>241</height>
+         <height>251</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>181</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Vertical Asymmetry</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>300</y>
+         <width>181</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Horizontal Asymmetry</string>
        </property>
       </widget>
      </widget>
