@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon 13. Jan 00:47:25 2014
+** Created: Thu 30. Jan 00:54:40 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -65,20 +65,15 @@ public:
     QLineEdit *lineZUCSign;
     QWidget *tab_6;
     QGroupBox *groupBox;
-    QLabel *label_7;
-    QLabel *label_8;
-    QGraphicsView *graphicsViewExceedingZDCLogTeor;
-    QGraphicsView *graphicsViewExceedingZDCLogExper;
-    QGraphicsView *graphicsViewExceedingZDCTeor;
-    QGraphicsView *graphicsViewExceedingZDCExper;
-    QLabel *label_15;
+    QGraphicsView *graphicsViewExceedingZDCLogTeorExper;
+    QGraphicsView *graphicsViewExceedingZDCTeorExper;
     QGroupBox *groupBox_2;
-    QGraphicsView *graphicsViewExceedingZUCLogExper;
-    QGraphicsView *graphicsViewExceedingZUCLogTeor;
-    QGraphicsView *graphicsViewExceedingZUCExper;
-    QGraphicsView *graphicsViewExceedingZUCTeor;
+    QGraphicsView *graphicsViewExceedingZUCTeorExper;
+    QGraphicsView *graphicsViewExceedingZUCLogTeorExper;
     QLabel *label_13;
     QLabel *label_14;
+    QLineEdit *lineT;
+    QLineEdit *lineE;
     QWidget *tab_5;
     QGroupBox *groupBox_3;
     QGraphicsView *graphicsViewCloudsZDCA;
@@ -164,7 +159,7 @@ public:
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
         graphicsView = new QGraphicsView(tab_3);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 10, 881, 581));
+        graphicsView->setGeometry(QRect(10, 20, 881, 341));
         graphicsView->setFrameShape(QFrame::StyledPanel);
         graphicsView->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         tabWidget->addTab(tab_3, QString());
@@ -179,10 +174,12 @@ public:
         graphicsViewZDC = new QGraphicsView(tab_4);
         graphicsViewZDC->setObjectName(QString::fromUtf8("graphicsViewZDC"));
         graphicsViewZDC->setGeometry(QRect(10, 30, 731, 192));
+        graphicsViewZDC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsViewZDC->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         graphicsViewZUC = new QGraphicsView(tab_4);
         graphicsViewZUC->setObjectName(QString::fromUtf8("graphicsViewZUC"));
         graphicsViewZUC->setGeometry(QRect(10, 250, 731, 192));
+        graphicsViewZUC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsViewZUC->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         label_3 = new QLabel(tab_4);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -237,57 +234,40 @@ public:
         tab_6->setObjectName(QString::fromUtf8("tab_6"));
         groupBox = new QGroupBox(tab_6);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(0, 0, 431, 611));
-        label_7 = new QLabel(groupBox);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(10, 280, 281, 16));
-        label_8 = new QLabel(groupBox);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(10, 10, 281, 16));
-        graphicsViewExceedingZDCLogTeor = new QGraphicsView(groupBox);
-        graphicsViewExceedingZDCLogTeor->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCLogTeor"));
-        graphicsViewExceedingZDCLogTeor->setGeometry(QRect(10, 160, 411, 121));
-        graphicsViewExceedingZDCLogTeor->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        graphicsViewExceedingZDCLogExper = new QGraphicsView(groupBox);
-        graphicsViewExceedingZDCLogExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCLogExper"));
-        graphicsViewExceedingZDCLogExper->setGeometry(QRect(10, 440, 411, 131));
-        graphicsViewExceedingZDCLogExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        graphicsViewExceedingZDCTeor = new QGraphicsView(groupBox);
-        graphicsViewExceedingZDCTeor->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCTeor"));
-        graphicsViewExceedingZDCTeor->setGeometry(QRect(10, 30, 411, 121));
-        graphicsViewExceedingZDCTeor->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        graphicsViewExceedingZDCExper = new QGraphicsView(groupBox);
-        graphicsViewExceedingZDCExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCExper"));
-        graphicsViewExceedingZDCExper->setGeometry(QRect(10, 300, 411, 131));
-        graphicsViewExceedingZDCExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        label_15 = new QLabel(groupBox);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-        label_15->setGeometry(QRect(450, 280, 281, 16));
+        groupBox->setGeometry(QRect(0, 0, 671, 301));
+        graphicsViewExceedingZDCLogTeorExper = new QGraphicsView(groupBox);
+        graphicsViewExceedingZDCLogTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCLogTeorExper"));
+        graphicsViewExceedingZDCLogTeorExper->setGeometry(QRect(10, 160, 641, 131));
+        graphicsViewExceedingZDCLogTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        graphicsViewExceedingZDCTeorExper = new QGraphicsView(groupBox);
+        graphicsViewExceedingZDCTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCTeorExper"));
+        graphicsViewExceedingZDCTeorExper->setGeometry(QRect(10, 20, 641, 131));
+        graphicsViewExceedingZDCTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         groupBox_2 = new QGroupBox(tab_6);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(440, 0, 441, 591));
-        graphicsViewExceedingZUCLogExper = new QGraphicsView(groupBox_2);
-        graphicsViewExceedingZUCLogExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCLogExper"));
-        graphicsViewExceedingZUCLogExper->setGeometry(QRect(10, 440, 421, 131));
-        graphicsViewExceedingZUCLogExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        graphicsViewExceedingZUCLogTeor = new QGraphicsView(groupBox_2);
-        graphicsViewExceedingZUCLogTeor->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCLogTeor"));
-        graphicsViewExceedingZUCLogTeor->setGeometry(QRect(10, 160, 421, 121));
-        graphicsViewExceedingZUCLogTeor->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        graphicsViewExceedingZUCExper = new QGraphicsView(groupBox_2);
-        graphicsViewExceedingZUCExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCExper"));
-        graphicsViewExceedingZUCExper->setGeometry(QRect(10, 300, 421, 131));
-        graphicsViewExceedingZUCExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        graphicsViewExceedingZUCTeor = new QGraphicsView(groupBox_2);
-        graphicsViewExceedingZUCTeor->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCTeor"));
-        graphicsViewExceedingZUCTeor->setGeometry(QRect(10, 30, 421, 121));
-        graphicsViewExceedingZUCTeor->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        label_13 = new QLabel(groupBox_2);
+        groupBox_2->setGeometry(QRect(0, 300, 671, 311));
+        graphicsViewExceedingZUCTeorExper = new QGraphicsView(groupBox_2);
+        graphicsViewExceedingZUCTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCTeorExper"));
+        graphicsViewExceedingZUCTeorExper->setGeometry(QRect(10, 20, 641, 131));
+        graphicsViewExceedingZUCTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        graphicsViewExceedingZUCLogTeorExper = new QGraphicsView(groupBox_2);
+        graphicsViewExceedingZUCLogTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCLogTeorExper"));
+        graphicsViewExceedingZUCLogTeorExper->setGeometry(QRect(10, 160, 641, 131));
+        graphicsViewExceedingZUCLogTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_13 = new QLabel(tab_6);
         label_13->setObjectName(QString::fromUtf8("label_13"));
-        label_13->setGeometry(QRect(10, 10, 281, 16));
-        label_14 = new QLabel(groupBox_2);
+        label_13->setGeometry(QRect(680, 10, 281, 16));
+        label_14 = new QLabel(tab_6);
         label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setGeometry(QRect(10, 280, 281, 16));
+        label_14->setGeometry(QRect(680, 80, 281, 16));
+        lineT = new QLineEdit(tab_6);
+        lineT->setObjectName(QString::fromUtf8("lineT"));
+        lineT->setGeometry(QRect(680, 40, 161, 2));
+        lineT->setFrame(false);
+        lineE = new QLineEdit(tab_6);
+        lineE->setObjectName(QString::fromUtf8("lineE"));
+        lineE->setGeometry(QRect(680, 110, 163, 2));
+        lineE->setFrame(false);
         tabWidget->addTab(tab_6, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
@@ -306,10 +286,6 @@ public:
         label_11 = new QLabel(groupBox_3);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setGeometry(QRect(10, 300, 181, 16));
-        graphicsViewCloudsZDCA->raise();
-        graphicsViewCloudsZDCL->raise();
-        label_9->raise();
-        label_11->raise();
         groupBox_4 = new QGroupBox(tab_5);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setGeometry(QRect(450, 10, 431, 581));
@@ -340,7 +316,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -381,9 +357,6 @@ public:
         label_6->setText(QApplication::translate("MainWindow", "Significant Height", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Diagram", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0, QApplication::UnicodeUTF8));
-        label_15->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0, QApplication::UnicodeUTF8));
         label_14->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));

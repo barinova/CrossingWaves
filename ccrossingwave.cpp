@@ -194,17 +194,18 @@ void CCrossingWave::setProbabilities()
 void CCrossingWave::setListProbabilities(QList<float> listHeights, typeCrossing type)
 {
     probability obj;
-    float N, waveFrequency;
+    float N, waveFrequency, signH;
     N = listHeights.size();
     qSort(listHeights.begin(), listHeights.end());
     qDebug("Pteor exp(-H^2/(8*Hsign^2))\n", obj.teorP, obj.H, h.at(type).significantHeight);
     //qDebug("P  i/N");
     for(int i(0); i < listHeights.size(); i++)
     {
+        signH = pow(h.at(type).significantHeight,2);
         waveFrequency = (N-i)/N;
         obj.H = listHeights.at(i);
-        obj.P = waveFrequency;
-        obj.teorP = exp(-obj.H * obj.H/(8*pow(h.at(type).significantHeight,2)));
+        obj.P = exp(-obj.H*obj.H/(2*signH));
+        obj.teorP = exp(-obj.H * obj.H/(8*signH));
         if(type == ZDC)
         {
 

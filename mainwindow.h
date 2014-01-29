@@ -37,21 +37,25 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void getGraph();
-    void addLines(float height, float width, QGraphicsScene *scene);
+    void addHorizontalLines(float height, float width, QGraphicsScene *scene);
     void renderingTroughsAndRidges(QGraphicsScene *scene);
     void addText(QGraphicsScene *scene, float x, float y, QString label, Qt::GlobalColor color, double size);
     void diagramHeights();
     void setTableWidgetResults();
     void renderingProbability();
-    void renderingProbabilityList(QList<probability> list, QGraphicsView *graphTeor, QGraphicsView *graphTeorLog, QGraphicsView *graphExper, QGraphicsView *graphExperLog, int type);
-    void getProbNormalGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param);
-    void getProbLogGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param);
+    void renderingProbabilityList(QList<probability> list,QGraphicsView* graphTeorExper, QGraphicsView* graphTeorExperLog,int type);
+    void getProbNormalGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param, QPen pen);
+    void getProbLogGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param, QPen pen);
     void addGraphicsAxis(QGraphicsScene* scene, QString strX, QString strY, int y);
     void renderCloudsAsimetry();
-    void addGraphicsLittleLines(QGraphicsScene* scene);
+    void addGraphicsLittleLines(QGraphicsScene* scene, int delta, double scaleX, double scaleY);
     void addGraphicsOrtLine(QGraphicsScene *scene, int point, typeDelta delta, Qt::GlobalColor color, QString label, int width);
+    void addVerticalLines(QGraphicsScene* scene, QString label, int x, int y);
     template <typename T> int sign(T val);
 };
 
 
+template <typename T> int MainWindow::sign(T val) {
+    return (T(0) < val) - (val < T(0));
+}
 #endif // MAINWINDOW_H

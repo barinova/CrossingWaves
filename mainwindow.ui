@@ -30,7 +30,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideNone</enum>
@@ -191,9 +191,9 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>20</y>
         <width>881</width>
-        <height>581</height>
+        <height>341</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -243,6 +243,9 @@
         <height>192</height>
        </rect>
       </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
@@ -255,6 +258,9 @@
         <width>731</width>
         <height>192</height>
        </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -438,58 +444,19 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>431</width>
-        <height>611</height>
+        <width>671</width>
+        <height>301</height>
        </rect>
       </property>
       <property name="title">
        <string>-down-zero-crossing waves</string>
       </property>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>280</y>
-         <width>281</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>experimental exceedance probability</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>281</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>teoretical exceedance probability</string>
-       </property>
-      </widget>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZDCLogTeor">
+      <widget class="QGraphicsView" name="graphicsViewExceedingZDCLogTeorExper">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>160</y>
-         <width>411</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZDCLogExper">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>440</y>
-         <width>411</width>
+         <width>641</width>
          <height>131</height>
         </rect>
        </property>
@@ -497,64 +464,38 @@
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZDCTeor">
+      <widget class="QGraphicsView" name="graphicsViewExceedingZDCTeorExper">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
-         <width>411</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZDCExper">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>300</y>
-         <width>411</width>
+         <y>20</y>
+         <width>641</width>
          <height>131</height>
         </rect>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_15">
-       <property name="geometry">
-        <rect>
-         <x>450</x>
-         <y>280</y>
-         <width>281</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>experimental exceedance probability</string>
        </property>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>0</y>
-        <width>441</width>
-        <height>591</height>
+        <x>0</x>
+        <y>300</y>
+        <width>671</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="title">
        <string>-up-zero-crossing waves</string>
       </property>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZUCLogExper">
+      <widget class="QGraphicsView" name="graphicsViewExceedingZUCTeorExper">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>440</y>
-         <width>421</width>
+         <y>20</y>
+         <width>641</width>
          <height>131</height>
         </rect>
        </property>
@@ -562,25 +503,12 @@
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZUCLogTeor">
+      <widget class="QGraphicsView" name="graphicsViewExceedingZUCLogTeorExper">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>160</y>
-         <width>421</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZUCExper">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>300</y>
-         <width>421</width>
+         <width>641</width>
          <height>131</height>
         </rect>
        </property>
@@ -588,45 +516,58 @@
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QGraphicsView" name="graphicsViewExceedingZUCTeor">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>421</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>281</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>teoretical exceedance probability</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_14">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>280</y>
-         <width>281</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>experimental exceedance probability</string>
-       </property>
-      </widget>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>10</y>
+        <width>281</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>teoretical exceedance probability</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>80</y>
+        <width>281</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>experimental exceedance probability</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineT">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>40</y>
+        <width>161</width>
+        <height>2</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineE">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>110</y>
+        <width>163</width>
+        <height>2</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
@@ -691,11 +632,6 @@
         <string>Hoizontal Asymmetry</string>
        </property>
       </widget>
-      <zorder>graphicsViewCloudsZDCA</zorder>
-      <zorder>graphicsViewCloudsZDCL</zorder>
-      <zorder>graphicsViewCloudsZUCA</zorder>
-      <zorder>label_9</zorder>
-      <zorder>label_11</zorder>
      </widget>
      <widget class="QGroupBox" name="groupBox_4">
       <property name="geometry">
