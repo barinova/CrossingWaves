@@ -7,11 +7,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/icon.png"));
+    CDragDropMenu *dnd;
+    dnd->getInstance(this);
     ui->lineZDCSign->setStyleSheet("QLineEdit{background: darkGray;}");
     ui->lineZDC->setStyleSheet("QLineEdit{background: lightGray;}");
     ui->lineZUCSign->setStyleSheet("QLineEdit{background: darkGray;}");
     ui->lineZUC->setStyleSheet("QLineEdit{background: lightGray;}");
     wave = new CCrossingWave();
+
+    //connect(ui->buttonSave, SIGNAL(clicked()), this,
+    //        SLOT(on_saveButton_clicked());
 
 }
 
@@ -152,7 +157,7 @@ void MainWindow::addGraphicsLittleLines(QGraphicsScene *scene, int delta, double
     for(int i(- height); i < height; i+=delta)
     {
          QGraphicsTextItem* text = new QGraphicsTextItem;
-         text->scale(0.6, 0.6);
+         text->setScale(0.6);
          text->setDefaultTextColor(Qt::darkGray);
          text->setPos(2, - i);
          tmp = (float)i/scaleY;
@@ -165,7 +170,7 @@ void MainWindow::addGraphicsLittleLines(QGraphicsScene *scene, int delta, double
     for(int i(0); i < width; i+=delta)
     {
        QGraphicsTextItem* text = new QGraphicsTextItem;
-        text->scale(0.6, 0.6);
+        text->setScale(0.6);
         text->setDefaultTextColor(Qt::darkGray);
         text->setPos(i, 2);
         tmp = (float)i/scaleX;
@@ -431,8 +436,15 @@ void MainWindow::addText(QGraphicsScene *scene, float x, float y, QString label,
 {
     QGraphicsTextItem* text = new QGraphicsTextItem;
     y > 0 ? text->setPos(x  + 1 , - y - 15) : text->setPos(x + 1 , - y + 5);
-    text->scale(size, size);
+    text->setScale(size);
     text->setDefaultTextColor(color);
     text->setPlainText(label);
     scene->addItem(text);
 }
+
+//void MainWindow::on_saveButton_clicked(int tabsIndex)
+//{
+//   QString tabName = tabName.at(i);
+//   CSaveImg *img = new CSaveImg();
+//   img->Save(i, ui->tab);
+//}

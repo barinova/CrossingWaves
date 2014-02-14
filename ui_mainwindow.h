@@ -11,23 +11,23 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QGraphicsView>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QMainWindow>
-#include <QtGui/QMenuBar>
-#include <QtGui/QPushButton>
-#include <QtGui/QStatusBar>
-#include <QtGui/QTabWidget>
-#include <QtGui/QTableWidget>
-#include <QtGui/QTextBrowser>
-#include <QtGui/QToolBar>
-#include <QtGui/QWidget>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QToolBar>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -40,7 +40,8 @@ public:
     QPushButton *calculateButton;
     QPushButton *openButton;
     QTableWidget *tableWidget;
-    QPushButton *browseButton;
+    QPushButton *buttonBrowse;
+    //QPushButton * buttonSave;
     QLineEdit *fileNameEdit;
     QWidget *tab_2;
     QTableWidget *tableWidgetResults;
@@ -125,9 +126,9 @@ public:
         tableWidget->setMinimumSize(QSize(201, 0));
         tableWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableWidget->setColumnCount(2);
-        browseButton = new QPushButton(tab);
-        browseButton->setObjectName(QString::fromUtf8("browseButton"));
-        browseButton->setGeometry(QRect(250, 10, 75, 23));
+        buttonBrowse = new QPushButton(tab);
+        buttonBrowse->setObjectName(QString::fromUtf8("browseButton"));
+        buttonBrowse->setGeometry(QRect(250, 10, 75, 23));
         fileNameEdit = new QLineEdit(tab);
         fileNameEdit->setObjectName(QString::fromUtf8("fileNameEdit"));
         fileNameEdit->setGeometry(QRect(10, 10, 231, 20));
@@ -163,6 +164,9 @@ public:
         graphicsView->setFrameShape(QFrame::StyledPanel);
         graphicsView->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         tabWidget->addTab(tab_3, QString());
+        //buttonSave = new QPushButton(tab_3);
+        //buttonSave->setObjectName(QString::fromUtf8("buttonSave"));
+        //buttonSave->setGeometry(QRect(10, 550, 75, 23));
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
         label = new QLabel(tab_4);
@@ -324,50 +328,51 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Crossing Waves", 0, QApplication::UnicodeUTF8));
-        calculateButton->setText(QApplication::translate("MainWindow", "Calculate", 0, QApplication::UnicodeUTF8));
-        openButton->setText(QApplication::translate("MainWindow", "Open", 0, QApplication::UnicodeUTF8));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Crossing Waves", 0));
+        calculateButton->setText(QApplication::translate("MainWindow", "Calculate", 0));
+        openButton->setText(QApplication::translate("MainWindow", "Open", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Sec", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Sec", 0));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Shift", 0, QApplication::UnicodeUTF8));
-        browseButton->setText(QApplication::translate("MainWindow", "Browse", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Input Parametres", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Shift", 0));
+        buttonBrowse->setText(QApplication::translate("MainWindow", "Browse", 0));
+        //buttonSave->setText(QApplication::translate("MainWindow", "Save", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Input Parametres", 0));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidgetResults->horizontalHeaderItem(0);
-        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Type", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Type", 0));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidgetResults->horizontalHeaderItem(1);
-        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "A+", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "A+", 0));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidgetResults->horizontalHeaderItem(2);
-        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "A-", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "A-", 0));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidgetResults->horizontalHeaderItem(3);
-        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "H", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "H", 0));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidgetResults->horizontalHeaderItem(4);
-        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Position", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Position", 0));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidgetResults->horizontalHeaderItem(5);
-        ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Asymmetry(Vert)", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Asymmetry(Vert)", 0));
         QTableWidgetItem *___qtablewidgetitem8 = tableWidgetResults->horizontalHeaderItem(6);
-        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Asymmetry(Hor)", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Result Parametres", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Graph of Results", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "-down-zero-crossing wave heights", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("MainWindow", "-up-zero-crossing wave heights", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("MainWindow", "Height 1/3", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("MainWindow", "Height 1/3", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("MainWindow", "Significant Height", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("MainWindow", "Significant Height", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Diagram", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
-        label_13->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0, QApplication::UnicodeUTF8));
-        label_14->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Probability distribution exceeding", 0, QApplication::UnicodeUTF8));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0, QApplication::UnicodeUTF8));
-        label_11->setText(QApplication::translate("MainWindow", "Hoizontal Asymmetry", 0, QApplication::UnicodeUTF8));
-        groupBox_4->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
-        label_10->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0, QApplication::UnicodeUTF8));
-        label_12->setText(QApplication::translate("MainWindow", "Horizontal Asymmetry", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Clouds", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Asymmetry(Hor)", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Result Parametres", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Graph of Results", 0));
+        label->setText(QApplication::translate("MainWindow", "-down-zero-crossing wave heights", 0));
+        label_2->setText(QApplication::translate("MainWindow", "-up-zero-crossing wave heights", 0));
+        label_3->setText(QApplication::translate("MainWindow", "Height 1/3", 0));
+        label_4->setText(QApplication::translate("MainWindow", "Height 1/3", 0));
+        label_5->setText(QApplication::translate("MainWindow", "Significant Height", 0));
+        label_6->setText(QApplication::translate("MainWindow", "Significant Height", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Diagram", 0));
+        groupBox->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0));
+        label_13->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0));
+        label_14->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Probability distribution exceeding", 0));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0));
+        label_9->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0));
+        label_11->setText(QApplication::translate("MainWindow", "Hoizontal Asymmetry", 0));
+        groupBox_4->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0));
+        label_10->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0));
+        label_12->setText(QApplication::translate("MainWindow", "Horizontal Asymmetry", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Clouds", 0));
     } // retranslateUi
 
 };

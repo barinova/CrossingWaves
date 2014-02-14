@@ -1,18 +1,30 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <QtWidgets/QMainWindow>
 #include "ccrossingwave.h"
-#include <QFileDialog>
+#include <QtWidgets/QFileDialog>
 #include <QPainter>
 #include <QPointF>
-#include <QSystemTrayIcon>
-#include <QGraphicsTextItem>
+#include <QtWidgets/QSystemTrayIcon>
+#include <QtWidgets/QGraphicsTextItem>
 #include <QDebug>
 #include "ui_mainwindow.h"
 #include <math.h>
+#include <csaveimg.h>
+#include "cdragdropmenu.h"
 
 enum typeDelta{ X, Y};
+
+enum tabName
+{
+    InputParametres = 0,
+    ResultParametres,
+    ResultsGraph,
+    HeightsDiagram,
+    HeightsProbability,
+    Clouds
+};
 
 namespace Ui {
 class MainWindow;
@@ -33,6 +45,9 @@ private slots:
     void on_openButton_clicked();
 
     void on_calculateButton_clicked();
+
+//    void on_saveButton_clicked(int tabsIndex);
+
 
 private:
     Ui::MainWindow *ui;
