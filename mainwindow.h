@@ -63,9 +63,11 @@ private:
     void getProbLogGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param, QPen pen);
     void addGraphicsAxis(QGraphicsScene* scene, QString strX, QString strY, int y);
     void renderCloudsAsimetry();
-    void addGraphicsLittleLines(QGraphicsScene* scene, int delta, double scaleX, double scaleY);
+    void addGraphicsLittleLines(QGraphicsScene *scene, int delta, float scaleX, float scaleY);
+    //void addGraphicsLittleLines(QGraphicsScene* scene, int delta, double scaleX, double scaleY);
     void addGraphicsOrtLine(QGraphicsScene *scene, int point, typeDelta delta, Qt::GlobalColor color, QString label, int width);
     void addVerticalLines(QGraphicsScene* scene, QString label, int x, int y);
+    void addBigLables(QGraphicsScene *scene, QString label, float x, float y, int size);
     template <typename T> int sign(T val);
 };
 

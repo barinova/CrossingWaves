@@ -18,7 +18,7 @@ struct waveParametres
 struct probability
 {
     float H;
-    float P;
+    float experP;
     float teorP;
 };
 
@@ -41,6 +41,7 @@ struct heights
     typeCrossing type;
     float significantHeight;
     float heightOneThird;
+    float sigma;
 };
 
 class CCrossingWave
@@ -67,6 +68,7 @@ private:
     void amplMax(waveParametres point, waveEntity &wave);
     float significantHeights(QList<float> listHeights);
     float heightOneThird(QList<float> listHeights);
+    float setSigma(QList<float> listHeights, float sighificiantHeight);
     void setHeights();
     void setListProbabilities(QList<float> listHeights, typeCrossing type);
 };

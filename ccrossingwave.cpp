@@ -127,6 +127,7 @@ float CCrossingWave::heightOneThird(QList<float> listHeights)
 
 float CCrossingWave::significantHeights(QList<float> listHeights)
 {
+    //wtf
     float tmp = listHeights.count();
     float heightSignificant;
     for(int i(0); i < listHeights.count(); i++)
@@ -138,17 +139,31 @@ float CCrossingWave::significantHeights(QList<float> listHeights)
     return sqrt(4.04*heightSignificant/listHeights.count());
 }
 
+float CCrossingWave::setSigma(QList<float> listHeights, float sighificiantHeight)
+{
+    //float tmp = listHeights.count();
+    float sigma;
+    //if sign heights != 0
+    for(int i(0); i < listHeights.count(); i++)
+    {
+        sigma += sqrt(pow(listHeights.at(i) - sighificiantHeight, 2));
+    }
+    return (sigma/listHeights.count());
+}
+
 void CCrossingWave::setHeights()
 {
     heights zuc, zdc;
     zdc.type = ZDC;
     zdc.significantHeight = significantHeights(listHeihtsZDC);
     zdc.heightOneThird = heightOneThird(listHeihtsZDC);
+    zdc.sigma = setSigma(listHeihtsZDC, zdc.heightOneThird);
     h.append(zdc);
 
     zuc.type = ZUC;
     zuc.significantHeight = significantHeights(listHeihtsZUC);
     zuc.heightOneThird = heightOneThird(listHeihtsZUC);
+    zuc.sigma = setSigma(listHeihtsZUC, zuc.heightOneThird);
     h.append(zuc);
 }
 
@@ -204,8 +219,9 @@ void CCrossingWave::setListProbabilities(QList<float> listHeights, typeCrossing 
         signH = pow(h.at(type).significantHeight,2);
         waveFrequency = (N-i)/N;
         obj.H = listHeights.at(i);
-        obj.P = exp(-obj.H*obj.H/(2*signH));
-        obj.teorP = exp(-obj.H * obj.H/(8*signH));
+        obj.experP = waveFrequency;
+        //obj.teorP = exp(-obj.H * obj.H/(8*h.at(type).sigma * h.at(type).sigma));
+        obj.teorP = exp(-obj.H * obj.H/(2*h.at(type).sigma * h.at(type).sigma));
         if(type == ZDC)
         {
 
