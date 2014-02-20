@@ -26,10 +26,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>901</width>
-      <height>671</height>
+      <x>20</x>
+      <y>20</y>
+      <width>921</width>
+      <height>721</height>
      </rect>
     </property>
     <property name="tabPosition">
@@ -558,7 +558,7 @@
       </widget>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
-        <string>-down-zero-crossing waves</string>
+        <string>-up-zero-crossing waves</string>
        </attribute>
        <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
@@ -777,6 +777,17 @@
       </widget>
      </widget>
     </widget>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>941</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayoutMenuBar"/>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>

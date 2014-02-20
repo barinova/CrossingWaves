@@ -33,6 +33,10 @@ void CCrossingWave::clearAll()
     this->h.clear();
     this->listHeihtsZDC.clear();
     this->listHeihtsZUC.clear();
+    this->listCrestAZDC.clear();
+    this->listCrestAZUC.clear();
+    this->listThroughAZDC.clear();
+    this->listThroughAZUC.clear();
     this->listProbabilitiesZDC.clear();
     this->listProbabilitiesZUC.clear();
     this->parametres.clear();
@@ -102,11 +106,17 @@ waveEntity CCrossingWave::getSingleWave(int i, typeCrossing type, int parametres
 
     if(wave.type == ZDC)
     {
+        //in new func
         listHeihtsZDC.append(wave.totalHeight);
+        listCrestAZDC.append(wave.amplMax);
+        listThroughAZDC.append( - wave.amplMin);
     }
     else
     {
+        //in new func
         listHeihtsZUC.append(wave.totalHeight);
+        listCrestAZUC.append(wave.amplMax);
+        listThroughAZUC.append( - wave.amplMin);
     }
     return wave;
 }
@@ -202,16 +212,19 @@ bool CCrossingWave::calculateWaves()
 
 void CCrossingWave::setProbabilities()
 {
-    this->setListProbabilities(listHeihtsZDC, ZDC);
-    this->setListProbabilities(listHeihtsZUC, ZUC);
+    this->setListProbabilities(listHeihtsZDC, listCrestAZDC, listThroughAZDC, ZDC);
+    this->setListProbabilities(listHeihtsZUC, listCrestAZUC, listThroughAZUC, ZUC);
 }
 
-void CCrossingWave::setListProbabilities(QList<float> listHeights, typeCrossing type)
+void CCrossingWave::setListProbabilities(QList<float> listHeights, QList<float> listCrestA,
+                                         QList<float> listThroughA, typeCrossing type)
 {
     probability obj;
     float N, waveFrequency, signH;
     N = listHeights.size();
     qSort(listHeights.begin(), listHeights.end());
+    qSort(listCrestA.begin(), listCrestA.end());
+    qSort(listThroughA.begin(), listThroughA.end());
     qDebug("Pteor exp(-H^2/(8*Hsign^2))\n", obj.teorP, obj.H, h.at(type).significantHeight);
     //qDebug("P  i/N");
     for(int i(0); i < listHeights.size(); i++)
@@ -221,6 +234,8 @@ void CCrossingWave::setListProbabilities(QList<float> listHeights, typeCrossing 
         obj.H = listHeights.at(i);
         obj.experP = waveFrequency;
         //obj.teorP = exp(-obj.H * obj.H/(8*h.at(type).sigma * h.at(type).sigma));
+        obj.crestP = exp(-pow(2 * listCrestA.at(i), 2)/(2 * h.at(type).sigma * h.at(type).sigma));
+        obj.troughP = exp(-pow(2 * listThroughA.at(i), 2)/(2 *h.at(type).sigma * h.at(type).sigma));
         obj.teorP = exp(-obj.H * obj.H/(2*h.at(type).sigma * h.at(type).sigma));
         if(type == ZDC)
         {
