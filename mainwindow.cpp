@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineZDC->setStyleSheet("QLineEdit{background: lightGray;}");
     ui->lineZUCSign->setStyleSheet("QLineEdit{background: darkGray;}");
     ui->lineZUC->setStyleSheet("QLineEdit{background: lightGray;}");
+    //CDragDropmenu menu;
+    //menu.setDNDMenu();
     wave = new CCrossingWave();
 
 }
@@ -124,7 +126,7 @@ void MainWindow::getGraph()
     }
     //horizontal lines
     addHorizontalLines(scene->height()/2, second.sec, scene);
-    addGraphicsAxis(scene,"x","h",scene->height());
+    addGraphicsAxis(scene,"x","h",- scene->height(), scene->height());
     renderingTroughsAndRidges(scene);
 }
 
@@ -142,29 +144,29 @@ void MainWindow::addHorizontalLines(float height, float width, QGraphicsScene* s
 }
 
 
-void MainWindow::addGraphicsLittleLines(QGraphicsScene *scene, int delta, float scaleX, float scaleY)
+void MainWindow::addGraphicsLittleLines(QGraphicsScene *scene, int delta, float scaleX, float scaleY,
+                                        int yMin, int yMax)
 {
-    int height = scene->height()/2 - 5;
     int width = scene->width() - 5;
     float tmp;
 
     //y
-    for(float i(0); i < height; i+=delta)
+    for(float i(0); i < yMin; i+=delta)
     {
          QGraphicsTextItem* text = new QGraphicsTextItem;
-         text->setScale(0.6);
+         text->setScale(0.8);
          text->setDefaultTextColor(Qt::darkGray);
-         text->setPos(0, - i - 5);
+         text->setPos(0, - i);
          tmp = i/scaleY;
          text->setPlainText(QString::number(tmp));
          scene->addLine(0, - i , 2, - i);
          scene->addItem(text);
     }
 
-    for(float i(0); i > - height; i-=delta)
+    for(float i(0); i > yMax; i-=delta)
     {
          QGraphicsTextItem* text = new QGraphicsTextItem;
-         text->setScale(0.6);
+         text->setScale(0.8);
          text->setDefaultTextColor(Qt::darkGray);
          text->setPos(0, - i);
          tmp = i/scaleY;
@@ -177,7 +179,7 @@ void MainWindow::addGraphicsLittleLines(QGraphicsScene *scene, int delta, float 
     for(int i(0); i < width; i+=delta)
     {
        QGraphicsTextItem* text = new QGraphicsTextItem;
-        text->setScale(0.6);
+        text->setScale(0.8);
         text->setDefaultTextColor(Qt::darkGray);
         text->setPos(i, 2);
         tmp = (float)i/scaleX;
@@ -253,8 +255,8 @@ void MainWindow::diagramHeights()
     ui->graphicsViewZUC->setSceneRect(0, 0, sceneZUC->width(), - sceneZUC->height()/2 - 10);
 
 
-    addGraphicsAxis(sceneZDC, "H", "N", ui->graphicsViewZDC->height());
-    addGraphicsAxis(sceneZUC, "H", "N", ui->graphicsViewZDC->height());
+    addGraphicsAxis(sceneZDC, "H", "N", - ui->graphicsViewZDC->height(), ui->graphicsViewZDC->height());
+    addGraphicsAxis(sceneZUC, "H", "N", - ui->graphicsViewZDC->height(), ui->graphicsViewZDC->height());
 
     addGraphicsOrtLine(sceneZDC,  wave->h.at(0).significantHeight * 20, X,Qt::darkGray, "significant height", 1);
     addGraphicsOrtLine(sceneZDC,  wave->h.at(0).heightOneThird * 20, X,Qt::lightGray, "height one third", 1);
@@ -285,10 +287,11 @@ void MainWindow::renderingProbabilityList(QList<probability> list, QGraphicsView
 {
     QGraphicsScene* sceneTeorExper = new QGraphicsScene(this);
     QGraphicsScene* sceneTeorExperLog = new QGraphicsScene(this);
-    QPen penE, penT;
-    float pExper, pTeor, signH;
+    QPen penE, penT, penCr, penTr;
+    float pExper, pTeor, signH, pCrest, pThrough;
     probability param;
-    QList<float> prevTeor, prevTeorLog, prevExper, prevExperLog;
+    QList<float> prevTeor, prevTeorLog, prevExper, prevExperLog,
+    prevCrest, prevCrestLog, prevThrough, prevThroughLog;
 
     //bind scenes
     graphTeorExper->setScene(sceneTeorExper);
@@ -299,8 +302,10 @@ void MainWindow::renderingProbabilityList(QList<probability> list, QGraphicsView
     penE.setWidth(2);
     penT.setColor(QColor(0x66, 0xCC, 0xFF));
     penT.setWidth(2);
-
-
+    penCr.setColor(QColor(0x00, 0xFF, 0xCC));
+    penCr.setWidth(2);
+    penTr.setColor(QColor(0xFF, 0xCC, 0x00));
+    penTr.setWidth(2);
 
     //addBigLables(sceneTeorExper, "Probability", 10, - 100, 2);
     //addBigLables(sceneTeorExperLog, "Probability",  10,  20, 2);
@@ -313,6 +318,8 @@ void MainWindow::renderingProbabilityList(QList<probability> list, QGraphicsView
             param = list.at(i);
             pTeor = param.teorP;
             pExper = param.experP;
+            pCrest = param.crestP;
+            pThrough = param.troughP;
             qreal tmp, tmp2, tmp3;
             if(type == 0)
             {
@@ -333,28 +340,32 @@ void MainWindow::renderingProbabilityList(QList<probability> list, QGraphicsView
         getProbLogGraph(sceneTeorExperLog, prevTeorLog, pTeor, param, penT);
         getProbNormalGraph(sceneTeorExper, prevExper, pExper, param, penE);
         getProbLogGraph(sceneTeorExperLog, prevExperLog, pExper, param, penE);
+        getProbNormalGraph(sceneTeorExper, prevCrest, pCrest, param, penCr);
+        getProbLogGraph(sceneTeorExperLog, prevCrestLog, pCrest, param, penCr);
+        getProbNormalGraph(sceneTeorExper, prevThrough, pThrough, param, penTr);
+        getProbLogGraph(sceneTeorExperLog, prevThroughLog, pThrough, param, penTr);
 
     }
 
     //sign axis
-    addGraphicsAxis(sceneTeorExperLog, "H", "lg(P)", sceneTeorExperLog->height() + 20);
-    addGraphicsAxis(sceneTeorExper, "H", "P", sceneTeorExper->height() + 20);
+    addGraphicsAxis(sceneTeorExperLog, "H", "lg(P)", 0, sceneTeorExperLog->height());
+    addGraphicsAxis(sceneTeorExper, "H", "P", - sceneTeorExper->height(), 0);
 
-    addGraphicsLittleLines(sceneTeorExper, 10, 100, 100);
-    addGraphicsLittleLines(sceneTeorExperLog, 10, 100, 100);
+    addGraphicsLittleLines(sceneTeorExperLog, 25, 100, 100, 0, - sceneTeorExperLog->height());
+    addGraphicsLittleLines(sceneTeorExper, 25, 100, 100, sceneTeorExper->height(),0);
 
     addBigLables(sceneTeorExper, "H", sceneTeorExper->width() - 5, 10, 1);
     addBigLables(sceneTeorExperLog, "H",sceneTeorExperLog->width() - 5, 10, 1);
-    addBigLables(sceneTeorExper, "P", 10, - sceneTeorExper->height()/2 + 5, 1);
-    addBigLables(sceneTeorExperLog, "lg(p)", 10, sceneTeorExperLog->height()/2 - 5, 1);
+    addBigLables(sceneTeorExper, "P", 10, - sceneTeorExper->height() + 5, 1);
+    addBigLables(sceneTeorExperLog, "lg(p)", 10, sceneTeorExperLog->height() - 5, 1);
 }
 
-void MainWindow::addGraphicsAxis(QGraphicsScene *scene, QString strX, QString strY, int y)
+void MainWindow::addGraphicsAxis(QGraphicsScene *scene, QString strX, QString strY, int yMax, int yMin)
 {
-    QGraphicsTextItem* textX = new QGraphicsTextItem;
-    QGraphicsTextItem* textY = new QGraphicsTextItem;
+    //QGraphicsTextItem* textX = new QGraphicsTextItem;
+    //QGraphicsTextItem* textY = new QGraphicsTextItem;
 
-    scene->addLine(0, - y, 0 , y);
+    scene->addLine(0, yMax, 0 , yMin);
     scene->addLine(0, 0, scene->width(), 0);
 
     //textY->setPos(2, - y - 5);
@@ -371,11 +382,15 @@ void MainWindow::getProbNormalGraph(QGraphicsScene* scene, QList<float> &prev, f
     if(prev.count() != 0)
     {
         scene->addLine(prev.at(0)* 100, - prev.at(1)* 100, param.H * 100, - p * 100, pen);
+        scene->addEllipse(prev.at(0)* 100, -prev.at(1)* 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
     }
     else
     {
         scene->addLine(0, - p * 100, param.H * 100, - p * 100, pen);
+        scene->addEllipse(0, 0, 2, 2, QPen(),QBrush(Qt::SolidPattern));
     }
+    //scene->addEllipse(param.H * 100, - p * 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
+
     prev.clear();
     prev.append(param.H);
     prev.append(p);
@@ -386,11 +401,14 @@ void MainWindow::getProbLogGraph(QGraphicsScene* scene,QList<float> &prev, float
     if(prev.count()!=0)
     {
         scene->addLine(prev.at(0)* 100, - prev.at(1)* 100, param.H * 100, - log10((double)p) * 100, pen);
+        scene->addEllipse(prev.at(0)* 100, - prev.at(1)* 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
     }
     else
     {
         scene->addLine(0, - log10((double)p) * 100, param.H * 100, - log10((double)p) * 100, pen);
+        scene->addEllipse(0, 0, 2, 2, QPen(),QBrush(Qt::SolidPattern));
     }
+    //scene->addEllipse(param.H * 100,  - log10((double)p) * 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
     prev.clear();
     prev.append(param.H);
     prev.append(log10((double)p));
@@ -437,15 +455,15 @@ void MainWindow::renderCloudsAsimetry()
         }
     }
     //переделать
-    addGraphicsAxis(sceneZDCHor, "H/H(1/3)", "Lcr/Ltr - 1", sceneZDCHor->height());
-    addGraphicsAxis(sceneZUCHor, "H/H(1/3)", "Lcr/Ltr - 1", sceneZUCHor->height());
-    addGraphicsAxis(sceneZDCVert, "H/H(1/3)", "Acr/Atr - 1", sceneZDCVert->height());
-    addGraphicsAxis(sceneZUCVert, "H/H(1/3)", "Acr/Atr - 1", sceneZUCVert->height());
+    addGraphicsAxis(sceneZDCHor, "H/H(1/3)", "Lcr/Ltr - 1", - sceneZDCHor->height(), sceneZDCHor->height());
+    addGraphicsAxis(sceneZUCHor, "H/H(1/3)", "Lcr/Ltr - 1", - sceneZUCHor->height(), sceneZUCHor->height());
+    addGraphicsAxis(sceneZDCVert, "H/H(1/3)", "Acr/Atr - 1", - sceneZDCVert->height(), sceneZDCVert->height());
+    addGraphicsAxis(sceneZUCVert, "H/H(1/3)", "Acr/Atr - 1", sceneZUCVert->height(), sceneZUCVert->height());
 
-    addGraphicsLittleLines(sceneZDCHor, delta, 400, 10);
-    addGraphicsLittleLines(sceneZUCHor, delta, 400, 10);
-    addGraphicsLittleLines(sceneZDCVert, delta, 400, 10);
-    addGraphicsLittleLines(sceneZUCVert, delta, 400, 10);
+    addGraphicsLittleLines(sceneZDCHor, delta, 400, 10, - sceneZDCHor->height()/2, sceneZDCHor->height()/2);
+    addGraphicsLittleLines(sceneZUCHor, delta, 400, 10, - sceneZUCHor->height()/2, sceneZUCHor->height()/2);
+    addGraphicsLittleLines(sceneZDCVert, delta, 400, 10, - sceneZDCVert->height()/2, sceneZDCVert->height()/2);
+    addGraphicsLittleLines(sceneZUCVert, delta, 400, 10, -sceneZUCVert->height()/2, sceneZUCVert->height()/2);
 }
 
 void MainWindow::addGraphicsOrtLine(QGraphicsScene *scene, int point, typeDelta delta, Qt::GlobalColor color, QString label, int width)

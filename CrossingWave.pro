@@ -5,21 +5,16 @@
 #-------------------------------------------------
 
 QT       += core gui sql
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = CrossingWave
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    ccrossingwave.cpp \
-    csaveimg.cpp \
-    cdragdropmenu.cpp
+    ccrossingwave.cpp
 
 HEADERS  += mainwindow.h \
-    ccrossingwave.h \
-    csaveimg.h \
-    cdragdropmenu.h
+    ccrossingwave.h
 
 FORMS    += mainwindow.ui
 

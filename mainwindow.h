@@ -1,17 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtWidgets/QMainWindow>
+#include <QMainWindow>
 #include "ccrossingwave.h"
-#include <QtWidgets/QFileDialog>
+#include <QFileDialog>
 #include <QPainter>
 #include <QPointF>
-#include <QtWidgets/QSystemTrayIcon>
-#include <QtWidgets/QGraphicsTextItem>
+#include <QSystemTrayIcon>
+#include <QGraphicsTextItem>
 #include <QDebug>
 #include "ui_mainwindow.h"
 #include <math.h>
-#include <csaveimg.h>
 #include "cdragdropmenu.h"
 
 enum typeDelta{ X, Y};
@@ -61,9 +60,9 @@ private:
     void renderingProbabilityList(QList<probability> list,QGraphicsView* graphTeorExper, QGraphicsView* graphTeorExperLog,int type);
     void getProbNormalGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param, QPen pen);
     void getProbLogGraph(QGraphicsScene* scene,QList<float> &prev, float p, probability param, QPen pen);
-    void addGraphicsAxis(QGraphicsScene* scene, QString strX, QString strY, int y);
+    void addGraphicsAxis(QGraphicsScene* scene, QString strX, QString strY, int yMax, int yMin);
     void renderCloudsAsimetry();
-    void addGraphicsLittleLines(QGraphicsScene *scene, int delta, float scaleX, float scaleY);
+    void addGraphicsLittleLines(QGraphicsScene *scene, int delta, float scaleX, float scaleY, int yMax, int yMin);
     //void addGraphicsLittleLines(QGraphicsScene* scene, int delta, double scaleX, double scaleY);
     void addGraphicsOrtLine(QGraphicsScene *scene, int point, typeDelta delta, Qt::GlobalColor color, QString label, int width);
     void addVerticalLines(QGraphicsScene* scene, QString label, int x, int y);

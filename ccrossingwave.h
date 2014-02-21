@@ -20,6 +20,8 @@ struct probability
     float H;
     float experP;
     float teorP;
+    float crestP;
+    float troughP;
 };
 
 struct waveEntity
@@ -47,8 +49,12 @@ struct heights
 class CCrossingWave
 {
 public:
-    QList<float>listHeihtsZDC;
+    QList<float> listHeihtsZDC;
     QList<float> listHeihtsZUC;
+    QList<float> listCrestAZDC;
+    QList<float> listCrestAZUC;
+    QList<float> listThroughAZDC;
+    QList<float> listThroughAZUC;
     QList<probability> listProbabilitiesZDC;
     QList<probability> listProbabilitiesZUC;
     std::map<int, waveParametres> parametres;
@@ -70,7 +76,8 @@ private:
     float heightOneThird(QList<float> listHeights);
     float setSigma(QList<float> listHeights, float sighificiantHeight);
     void setHeights();
-    void setListProbabilities(QList<float> listHeights, typeCrossing type);
+    void setListProbabilities(QList<float> listHeights, QList<float>listCrestA,
+                              QList<float> ListThroughA, typeCrossing type);
 };
 
 #endif // CCROSSINGWAVE_H
