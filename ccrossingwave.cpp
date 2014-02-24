@@ -1,30 +1,8 @@
 #include "ccrossingwave.h"
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <cstddef>
+
 
 CCrossingWave::CCrossingWave()
 {
-}
-
-bool CCrossingWave::readingFile(std::string pathToFile)
-{
-    std::ifstream fileName(pathToFile.c_str());
-    std::string sec, shift, line;
-    //create new starting func
-    clearAll();
-    while(getline(fileName, line))
-    {
-        std::stringstream   linestream(line);
-        getline(linestream, sec, '\t');
-        getline(linestream, shift, '\n');
-        dataToTable(sec, shift);
-    }
-    if(!(sec.empty() && shift.empty()))
-        return true;
-    else
-        return false;
 }
 
 void CCrossingWave::clearAll()
@@ -42,13 +20,13 @@ void CCrossingWave::clearAll()
     this->parametres.clear();
 }
 
-void CCrossingWave::dataToTable(std::string sec, std::string shift)
+bool CCrossingWave::readingFile(std::string pathToFile)
 {
-    waveParametres param;
-    param.sec = ::atof(sec.c_str());
-    param.shift = ::atof(shift.c_str());
-    parametres.insert(std::make_pair(parametres.size(), param));
+    CLoadFile *file = new CLoadFile();
+    parametres = file->loadFile(pathToFile);
+    return (parametres.size() > 0 ? true : false);
 }
+
 
 float CCrossingWave::getNullPoint(waveParametres firstPoint, waveParametres secondPoint)
 {

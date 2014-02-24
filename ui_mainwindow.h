@@ -1,7 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created: Tue 25. Feb 01:10:02 2014
+**      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,38 +11,46 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QAction>
-#include <QApplication>
-#include <QButtonGroup>
-#include <QGraphicsView>
-#include <QGroupBox>
-#include <QHeaderView>
-#include <QLabel>
-#include <QLineEdit>
-#include <QMainWindow>
-#include <QPushButton>
-#include <QStatusBar>
-#include <QTabWidget>
-#include <QTableWidget>
-#include <QTextBrowser>
-#include <QWidget>
+#include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QButtonGroup>
+#include <QtGui/QGraphicsView>
+#include <QtGui/QGroupBox>
+#include <QtGui/QHBoxLayout>
+#include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
+#include <QtGui/QLineEdit>
+#include <QtGui/QMainWindow>
+#include <QtGui/QMenu>
+#include <QtGui/QMenuBar>
+#include <QtGui/QPushButton>
+#include <QtGui/QStatusBar>
+#include <QtGui/QTabWidget>
+#include <QtGui/QTableWidget>
+#include <QtGui/QTextBrowser>
+#include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_MainWindow
 {
 public:
+    QAction *actionOpen;
+    QAction *actionSave_All;
+    QAction *actionAbout;
+    QAction *actionExit;
     QWidget *centralWidget;
+    QHBoxLayout *horizontalLayout_2;
     QTabWidget *tabWidget;
     QWidget *tab;
     QPushButton *calculateButton;
-    QPushButton *openButton;
     QTableWidget *tableWidget;
-    QPushButton *browseButton;
     QLineEdit *fileNameEdit;
+    QPushButton *buttonBrowse;
     QWidget *tab_2;
     QTableWidget *tableWidgetResults;
     QWidget *tab_3;
+    QHBoxLayout *horizontalLayout;
     QGraphicsView *graphicsView;
     QWidget *tab_4;
     QLabel *label;
@@ -90,31 +99,42 @@ public:
     QLabel *label_10;
     QLabel *label_12;
     QStatusBar *statusBar;
+    QMenuBar *menuBar;
+    QMenu *menuFile;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(("MainWindow"));
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(924, 714);
         MainWindow->setMinimumSize(QSize(924, 0));
         MainWindow->setDockOptions(QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks);
+        actionOpen = new QAction(MainWindow);
+        actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
+        actionSave_All = new QAction(MainWindow);
+        actionSave_All->setObjectName(QString::fromUtf8("actionSave_All"));
+        actionAbout = new QAction(MainWindow);
+        actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
+        actionExit = new QAction(MainWindow);
+        actionExit->setObjectName(QString::fromUtf8("actionExit"));
         centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(("centralWidget"));
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        horizontalLayout_2 = new QHBoxLayout(centralWidget);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         tabWidget = new QTabWidget(centralWidget);
-        tabWidget->setObjectName(("tabWidget"));
-        tabWidget->setGeometry(QRect(0, 0, 901, 671));
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setEnabled(true);
         tabWidget->setTabPosition(QTabWidget::North);
         tabWidget->setTabShape(QTabWidget::Rounded);
         tabWidget->setElideMode(Qt::ElideNone);
         tab = new QWidget();
-        tab->setObjectName(("tab"));
+        tab->setObjectName(QString::fromUtf8("tab"));
         calculateButton = new QPushButton(tab);
-        calculateButton->setObjectName(("calculateButton"));
+        calculateButton->setObjectName(QString::fromUtf8("calculateButton"));
         calculateButton->setEnabled(false);
-        calculateButton->setGeometry(QRect(600, 10, 75, 23));
-        openButton = new QPushButton(tab);
-        openButton->setObjectName(("openButton"));
-        openButton->setGeometry(QRect(250, 40, 75, 23));
+        calculateButton->setGeometry(QRect(260, 30, 75, 23));
         tableWidget = new QTableWidget(tab);
         if (tableWidget->columnCount() < 2)
             tableWidget->setColumnCount(2);
@@ -124,20 +144,22 @@ public:
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         __qtablewidgetitem1->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
         tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
-        tableWidget->setObjectName(("tableWidget"));
-        tableWidget->setGeometry(QRect(340, 10, 241, 421));
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+        tableWidget->setGeometry(QRect(10, 30, 241, 421));
         tableWidget->setMinimumSize(QSize(201, 0));
         tableWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableWidget->setColumnCount(2);
-        browseButton = new QPushButton(tab);
-        browseButton->setObjectName(("browseButton"));
-        browseButton->setGeometry(QRect(250, 10, 75, 23));
         fileNameEdit = new QLineEdit(tab);
-        fileNameEdit->setObjectName(("fileNameEdit"));
-        fileNameEdit->setGeometry(QRect(10, 10, 231, 20));
+        fileNameEdit->setObjectName(QString::fromUtf8("fileNameEdit"));
+        fileNameEdit->setGeometry(QRect(0, 0, 911, 20));
+        fileNameEdit->setReadOnly(true);
+        buttonBrowse = new QPushButton(tab);
+        buttonBrowse->setObjectName(QString::fromUtf8("buttonBrowse"));
+        buttonBrowse->setEnabled(true);
+        buttonBrowse->setGeometry(QRect(260, 60, 75, 23));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
-        tab_2->setObjectName(("tab_2"));
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tableWidgetResults = new QTableWidget(tab_2);
         if (tableWidgetResults->columnCount() < 7)
             tableWidgetResults->setColumnCount(7);
@@ -155,188 +177,216 @@ public:
         tableWidgetResults->setHorizontalHeaderItem(5, __qtablewidgetitem7);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
         tableWidgetResults->setHorizontalHeaderItem(6, __qtablewidgetitem8);
-        tableWidgetResults->setObjectName(("tableWidgetResults"));
+        tableWidgetResults->setObjectName(QString::fromUtf8("tableWidgetResults"));
         tableWidgetResults->setGeometry(QRect(10, 10, 881, 581));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tableWidgetResults->sizePolicy().hasHeightForWidth());
+        tableWidgetResults->setSizePolicy(sizePolicy);
         tableWidgetResults->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
-        tab_3->setObjectName(("tab_3"));
+        tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        horizontalLayout = new QHBoxLayout(tab_3);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         graphicsView = new QGraphicsView(tab_3);
-        graphicsView->setObjectName(("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 20, 881, 341));
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setFrameShape(QFrame::StyledPanel);
         graphicsView->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout->addWidget(graphicsView);
+
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
-        tab_4->setObjectName(("tab_4"));
+        tab_4->setObjectName(QString::fromUtf8("tab_4"));
         label = new QLabel(tab_4);
-        label->setObjectName(("label"));
+        label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 10, 171, 16));
         label_2 = new QLabel(tab_4);
-        label_2->setObjectName(("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(10, 230, 161, 16));
         graphicsViewZDC = new QGraphicsView(tab_4);
-        graphicsViewZDC->setObjectName(("graphicsViewZDC"));
+        graphicsViewZDC->setObjectName(QString::fromUtf8("graphicsViewZDC"));
         graphicsViewZDC->setGeometry(QRect(10, 30, 731, 192));
         graphicsViewZDC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsViewZDC->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         graphicsViewZUC = new QGraphicsView(tab_4);
-        graphicsViewZUC->setObjectName(("graphicsViewZUC"));
+        graphicsViewZUC->setObjectName(QString::fromUtf8("graphicsViewZUC"));
         graphicsViewZUC->setGeometry(QRect(10, 250, 731, 201));
         graphicsViewZUC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsViewZUC->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         label_3 = new QLabel(tab_4);
-        label_3->setObjectName(("label_3"));
+        label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(750, 30, 91, 21));
         label_4 = new QLabel(tab_4);
-        label_4->setObjectName(("label_4"));
+        label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(750, 250, 91, 21));
         textBrowserSignificantZDC = new QTextBrowser(tab_4);
-        textBrowserSignificantZDC->setObjectName(("textBrowserSignificantZDC"));
+        textBrowserSignificantZDC->setObjectName(QString::fromUtf8("textBrowserSignificantZDC"));
         textBrowserSignificantZDC->setGeometry(QRect(750, 50, 81, 21));
         textBrowserSignificantZDC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         textBrowserSignificantZDC->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         textBrowserSignificantZUC = new QTextBrowser(tab_4);
-        textBrowserSignificantZUC->setObjectName(("textBrowserSignificantZUC"));
+        textBrowserSignificantZUC->setObjectName(QString::fromUtf8("textBrowserSignificantZUC"));
         textBrowserSignificantZUC->setGeometry(QRect(750, 270, 81, 21));
         textBrowserSignificantZUC->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         textBrowserSignificantZUC->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         label_5 = new QLabel(tab_4);
-        label_5->setObjectName(("label_5"));
+        label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(750, 80, 91, 21));
         label_6 = new QLabel(tab_4);
-        label_6->setObjectName(("label_6"));
+        label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(750, 300, 91, 21));
         textBrowserSignificantZDCSign = new QTextBrowser(tab_4);
-        textBrowserSignificantZDCSign->setObjectName(("textBrowserSignificantZDCSign"));
+        textBrowserSignificantZDCSign->setObjectName(QString::fromUtf8("textBrowserSignificantZDCSign"));
         textBrowserSignificantZDCSign->setGeometry(QRect(750, 100, 81, 21));
         textBrowserSignificantZDCSign->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         textBrowserSignificantZDCSign->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         textBrowserSignificantZUCSign = new QTextBrowser(tab_4);
-        textBrowserSignificantZUCSign->setObjectName(("textBrowserSignificantZUCSign"));
+        textBrowserSignificantZUCSign->setObjectName(QString::fromUtf8("textBrowserSignificantZUCSign"));
         textBrowserSignificantZUCSign->setGeometry(QRect(750, 320, 81, 21));
         textBrowserSignificantZUCSign->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         textBrowserSignificantZUCSign->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         lineZDC = new QLineEdit(tab_4);
-        lineZDC->setObjectName(("lineZDC"));
+        lineZDC->setObjectName(QString::fromUtf8("lineZDC"));
         lineZDC->setGeometry(QRect(840, 60, 51, 2));
         lineZDC->setFrame(false);
         lineZDCSign = new QLineEdit(tab_4);
-        lineZDCSign->setObjectName(("lineZDCSign"));
+        lineZDCSign->setObjectName(QString::fromUtf8("lineZDCSign"));
         lineZDCSign->setGeometry(QRect(840, 110, 51, 2));
         lineZDCSign->setFrame(false);
         lineZUC = new QLineEdit(tab_4);
-        lineZUC->setObjectName(("lineZUC"));
+        lineZUC->setObjectName(QString::fromUtf8("lineZUC"));
         lineZUC->setGeometry(QRect(840, 280, 51, 2));
         lineZUC->setFrame(false);
         lineZUCSign = new QLineEdit(tab_4);
-        lineZUCSign->setObjectName(("lineZUCSign"));
+        lineZUCSign->setObjectName(QString::fromUtf8("lineZUCSign"));
         lineZUCSign->setGeometry(QRect(840, 330, 51, 2));
         lineZUCSign->setFrame(false);
         tabWidget->addTab(tab_4, QString());
         tab_6 = new QWidget();
-        tab_6->setObjectName(("tab_6"));
+        tab_6->setObjectName(QString::fromUtf8("tab_6"));
         tabWidget_2 = new QTabWidget(tab_6);
-        tabWidget_2->setObjectName(("tabWidget_2"));
+        tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
         tabWidget_2->setGeometry(QRect(0, 0, 881, 631));
         tab_7 = new QWidget();
-        tab_7->setObjectName(("tab_7"));
+        tab_7->setObjectName(QString::fromUtf8("tab_7"));
         groupBox = new QGroupBox(tab_7);
-        groupBox->setObjectName(("groupBox"));
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(0, 10, 671, 591));
         graphicsViewExceedingZDCLogTeorExper = new QGraphicsView(groupBox);
-        graphicsViewExceedingZDCLogTeorExper->setObjectName(("graphicsViewExceedingZDCLogTeorExper"));
+        graphicsViewExceedingZDCLogTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCLogTeorExper"));
         graphicsViewExceedingZDCLogTeorExper->setGeometry(QRect(10, 320, 641, 261));
         graphicsViewExceedingZDCLogTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         graphicsViewExceedingZDCTeorExper = new QGraphicsView(groupBox);
-        graphicsViewExceedingZDCTeorExper->setObjectName(("graphicsViewExceedingZDCTeorExper"));
+        graphicsViewExceedingZDCTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZDCTeorExper"));
         graphicsViewExceedingZDCTeorExper->setGeometry(QRect(10, 20, 641, 281));
         graphicsViewExceedingZDCTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         label_13 = new QLabel(tab_7);
-        label_13->setObjectName(("label_13"));
+        label_13->setObjectName(QString::fromUtf8("label_13"));
         label_13->setGeometry(QRect(680, 90, 281, 16));
         lineE = new QLineEdit(tab_7);
-        lineE->setObjectName(("lineE"));
+        lineE->setObjectName(QString::fromUtf8("lineE"));
         lineE->setGeometry(QRect(680, 120, 163, 2));
         lineE->setFrame(false);
         lineT = new QLineEdit(tab_7);
-        lineT->setObjectName(("lineT"));
+        lineT->setObjectName(QString::fromUtf8("lineT"));
         lineT->setGeometry(QRect(680, 50, 161, 2));
         lineT->setFrame(false);
         label_14 = new QLabel(tab_7);
-        label_14->setObjectName(("label_14"));
+        label_14->setObjectName(QString::fromUtf8("label_14"));
         label_14->setGeometry(QRect(680, 20, 281, 16));
         tabWidget_2->addTab(tab_7, QString());
         tab_8 = new QWidget();
-        tab_8->setObjectName(("tab_8"));
+        tab_8->setObjectName(QString::fromUtf8("tab_8"));
         groupBox_2 = new QGroupBox(tab_8);
-        groupBox_2->setObjectName(("groupBox_2"));
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setGeometry(QRect(0, 10, 671, 591));
         graphicsViewExceedingZUCTeorExper = new QGraphicsView(groupBox_2);
-        graphicsViewExceedingZUCTeorExper->setObjectName(("graphicsViewExceedingZUCTeorExper"));
+        graphicsViewExceedingZUCTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCTeorExper"));
         graphicsViewExceedingZUCTeorExper->setGeometry(QRect(10, 20, 641, 281));
         graphicsViewExceedingZUCTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         graphicsViewExceedingZUCLogTeorExper = new QGraphicsView(groupBox_2);
-        graphicsViewExceedingZUCLogTeorExper->setObjectName(("graphicsViewExceedingZUCLogTeorExper"));
+        graphicsViewExceedingZUCLogTeorExper->setObjectName(QString::fromUtf8("graphicsViewExceedingZUCLogTeorExper"));
         graphicsViewExceedingZUCLogTeorExper->setGeometry(QRect(10, 320, 641, 261));
         graphicsViewExceedingZUCLogTeorExper->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         label_15 = new QLabel(tab_8);
-        label_15->setObjectName(("label_15"));
+        label_15->setObjectName(QString::fromUtf8("label_15"));
         label_15->setGeometry(QRect(680, 90, 281, 16));
         lineE_2 = new QLineEdit(tab_8);
-        lineE_2->setObjectName(("lineE_2"));
+        lineE_2->setObjectName(QString::fromUtf8("lineE_2"));
         lineE_2->setGeometry(QRect(680, 120, 163, 2));
         lineE_2->setFrame(false);
         lineT_2 = new QLineEdit(tab_8);
-        lineT_2->setObjectName(("lineT_2"));
+        lineT_2->setObjectName(QString::fromUtf8("lineT_2"));
         lineT_2->setGeometry(QRect(680, 50, 161, 2));
         lineT_2->setFrame(false);
         label_16 = new QLabel(tab_8);
-        label_16->setObjectName(("label_16"));
+        label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(680, 20, 281, 16));
         tabWidget_2->addTab(tab_8, QString());
         tabWidget->addTab(tab_6, QString());
         tab_5 = new QWidget();
-        tab_5->setObjectName(("tab_5"));
+        tab_5->setObjectName(QString::fromUtf8("tab_5"));
         groupBox_3 = new QGroupBox(tab_5);
-        groupBox_3->setObjectName(("groupBox_3"));
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
         groupBox_3->setGeometry(QRect(10, 10, 431, 581));
         graphicsViewCloudsZDCA = new QGraphicsView(groupBox_3);
-        graphicsViewCloudsZDCA->setObjectName(("graphicsViewCloudsZDCA"));
+        graphicsViewCloudsZDCA->setObjectName(QString::fromUtf8("graphicsViewCloudsZDCA"));
         graphicsViewCloudsZDCA->setGeometry(QRect(10, 40, 401, 251));
         graphicsViewCloudsZDCL = new QGraphicsView(groupBox_3);
-        graphicsViewCloudsZDCL->setObjectName(("graphicsViewCloudsZDCL"));
+        graphicsViewCloudsZDCL->setObjectName(QString::fromUtf8("graphicsViewCloudsZDCL"));
         graphicsViewCloudsZDCL->setGeometry(QRect(10, 320, 401, 251));
         label_9 = new QLabel(groupBox_3);
-        label_9->setObjectName(("label_9"));
+        label_9->setObjectName(QString::fromUtf8("label_9"));
         label_9->setGeometry(QRect(10, 20, 181, 16));
         label_11 = new QLabel(groupBox_3);
-        label_11->setObjectName(("label_11"));
+        label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setGeometry(QRect(10, 300, 181, 16));
         groupBox_4 = new QGroupBox(tab_5);
-        groupBox_4->setObjectName(("groupBox_4"));
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setGeometry(QRect(450, 10, 431, 581));
         graphicsViewCloudsZUCA = new QGraphicsView(groupBox_4);
-        graphicsViewCloudsZUCA->setObjectName(("graphicsViewCloudsZUCA"));
+        graphicsViewCloudsZUCA->setObjectName(QString::fromUtf8("graphicsViewCloudsZUCA"));
         graphicsViewCloudsZUCA->setGeometry(QRect(10, 40, 401, 251));
         graphicsViewCloudsZUCL = new QGraphicsView(groupBox_4);
-        graphicsViewCloudsZUCL->setObjectName(("graphicsViewCloudsZUCL"));
+        graphicsViewCloudsZUCL->setObjectName(QString::fromUtf8("graphicsViewCloudsZUCL"));
         graphicsViewCloudsZUCL->setGeometry(QRect(10, 320, 401, 251));
         label_10 = new QLabel(groupBox_4);
-        label_10->setObjectName(("label_10"));
+        label_10->setObjectName(QString::fromUtf8("label_10"));
         label_10->setGeometry(QRect(10, 20, 181, 16));
         label_12 = new QLabel(groupBox_4);
-        label_12->setObjectName(("label_12"));
+        label_12->setObjectName(QString::fromUtf8("label_12"));
         label_12->setGeometry(QRect(10, 300, 181, 16));
         tabWidget->addTab(tab_5, QString());
+
+        horizontalLayout_2->addWidget(tabWidget);
+
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(("statusBar"));
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        menuBar = new QMenuBar(MainWindow);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 924, 21));
+        menuFile = new QMenu(menuBar);
+        menuFile->setObjectName(QString::fromUtf8("menuFile"));
+        MainWindow->setMenuBar(menuBar);
+
+        menuBar->addAction(menuFile->menuAction());
+        menuFile->addAction(actionOpen);
+        menuFile->addAction(actionSave_All);
+        menuFile->addAction(actionAbout);
+        menuFile->addAction(actionExit);
 
         retranslateUi(MainWindow);
+        QObject::connect(actionExit, SIGNAL(triggered()), MainWindow, SLOT(close()));
+        QObject::connect(actionOpen, SIGNAL(triggered()), buttonBrowse, SLOT(click()));
 
-        tabWidget->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(1);
 
 
@@ -345,54 +395,58 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Crossing Waves", 0));
-        calculateButton->setText(QApplication::translate("MainWindow", "Calculate", 0));
-        openButton->setText(QApplication::translate("MainWindow", "Open", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Crossing Waves", 0, QApplication::UnicodeUTF8));
+        actionOpen->setText(QApplication::translate("MainWindow", "Open", 0, QApplication::UnicodeUTF8));
+        actionSave_All->setText(QApplication::translate("MainWindow", "Save All", 0, QApplication::UnicodeUTF8));
+        actionAbout->setText(QApplication::translate("MainWindow", "About", 0, QApplication::UnicodeUTF8));
+        actionExit->setText(QApplication::translate("MainWindow", "Exit", 0, QApplication::UnicodeUTF8));
+        calculateButton->setText(QApplication::translate("MainWindow", "Calculate", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Sec", 0));
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Sec", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Shift", 0));
-        browseButton->setText(QApplication::translate("MainWindow", "Browse", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Input Parametres", 0));
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Shift", 0, QApplication::UnicodeUTF8));
+        buttonBrowse->setText(QApplication::translate("MainWindow", "Browse", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Input Parametres", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidgetResults->horizontalHeaderItem(0);
-        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Type", 0));
+        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Type", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidgetResults->horizontalHeaderItem(1);
-        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "A+", 0));
+        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "A+", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidgetResults->horizontalHeaderItem(2);
-        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "A-", 0));
+        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "A-", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidgetResults->horizontalHeaderItem(3);
-        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "H", 0));
+        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "H", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidgetResults->horizontalHeaderItem(4);
-        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Position", 0));
+        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Position", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidgetResults->horizontalHeaderItem(5);
-        ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Asymmetry(Vert)", 0));
+        ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Asymmetry(Vert)", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem8 = tableWidgetResults->horizontalHeaderItem(6);
-        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Asymmetry(Hor)", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Result Parametres", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Waves", 0));
-        label->setText(QApplication::translate("MainWindow", "-down-zero-crossing wave heights", 0));
-        label_2->setText(QApplication::translate("MainWindow", "-up-zero-crossing wave heights", 0));
-        label_3->setText(QApplication::translate("MainWindow", "Height 1/3", 0));
-        label_4->setText(QApplication::translate("MainWindow", "Height 1/3", 0));
-        label_5->setText(QApplication::translate("MainWindow", "Significant Height", 0));
-        label_6->setText(QApplication::translate("MainWindow", "Significant Height", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Heights' Diagram", 0));
-        groupBox->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0));
-        label_13->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0));
-        label_14->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "-down-zero-crossing waves", 0));
-        groupBox_2->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0));
-        label_15->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0));
-        label_16->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_8), QApplication::translate("MainWindow", "-down-zero-crossing waves", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Heights' Probability", 0));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0));
-        label_9->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0));
-        label_11->setText(QApplication::translate("MainWindow", "Hoizontal Asymmetry", 0));
-        groupBox_4->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0));
-        label_10->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0));
-        label_12->setText(QApplication::translate("MainWindow", "Horizontal Asymmetry", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Clouds", 0));
+        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Asymmetry(Hor)", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Result Parametres", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Waves", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "-down-zero-crossing wave heights", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("MainWindow", "-up-zero-crossing wave heights", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainWindow", "Height 1/3", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("MainWindow", "Height 1/3", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("MainWindow", "Significant Height", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("MainWindow", "Significant Height", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Heights' Diagram", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
+        label_13->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0, QApplication::UnicodeUTF8));
+        label_14->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
+        label_15->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0, QApplication::UnicodeUTF8));
+        label_16->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_8), QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Heights' Probability", 0, QApplication::UnicodeUTF8));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0, QApplication::UnicodeUTF8));
+        label_11->setText(QApplication::translate("MainWindow", "Hoizontal Asymmetry", 0, QApplication::UnicodeUTF8));
+        groupBox_4->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
+        label_10->setText(QApplication::translate("MainWindow", "Vertical Asymmetry", 0, QApplication::UnicodeUTF8));
+        label_12->setText(QApplication::translate("MainWindow", "Horizontal Asymmetry", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Clouds", 0, QApplication::UnicodeUTF8));
+        menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

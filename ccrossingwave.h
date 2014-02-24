@@ -1,19 +1,14 @@
 #ifndef CCROSSINGWAVE_H
 #define CCROSSINGWAVE_H
 
-#include <map>
 #include <string>
-#include <cstdlib>
+//#include <cstdlib>
 #include <math.h>
 #include <QList>
+#include "cloadfile.h"
 
 enum typeCrossing { ZDC, ZUC};
 
-struct waveParametres
-{
-    float sec;
-    float shift;
-};
 
 struct probability
 {
@@ -64,9 +59,9 @@ public:
     bool readingFile(std::string pathToFile);
     bool calculateWaves();
     void setProbabilities();
+    void clearAll();
 
 private:
-    void clearAll();
     void dataToTable(std::string sec, std::string shift);
     waveEntity getSingleWave(int i, typeCrossing type, int parametresSize);
     float getNullPoint(waveParametres fistPoint, waveParametres secondPoint);

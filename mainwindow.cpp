@@ -11,8 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineZDC->setStyleSheet("QLineEdit{background: lightGray;}");
     ui->lineZUCSign->setStyleSheet("QLineEdit{background: darkGray;}");
     ui->lineZUC->setStyleSheet("QLineEdit{background: lightGray;}");
-    //CDragDropmenu menu;
-    //menu.setDNDMenu();
     wave = new CCrossingWave();
 
 }
@@ -22,34 +20,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_browseButton_clicked()
+void MainWindow::setInputParametres()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("DAT Files (*.dat)"));
-    ui->fileNameEdit->setText(fileName);
-}
-
-void MainWindow::on_openButton_clicked()
-{
-    wave->calculatingWaves.clear();
-    wave->parametres.clear();
+    wave->clearAll();
     ui->tableWidget->clearContents();
-   if(!ui->fileNameEdit->text().isNull())
-   {
-       if(wave->readingFile(ui->fileNameEdit->text().toStdString()))
-       {
-           for(int i(0); i < wave->parametres.size(); i++)
-           {
-                waveParametres param = wave->parametres.at(i);
-                if(i > ui->tableWidget->rowCount() - 1)
-                {
-                    ui->tableWidget->insertRow(i);
-                }
-                ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(param.sec)));
-                ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(param.shift)));
-           }
-       }
-       ui->calculateButton->setEnabled(true);
-   }
+    if(wave->readingFile(ui->fileNameEdit->text().toStdString()))
+    {
+        //table
+        for(int i(0); i < wave->parametres.size(); i++)
+        {
+             waveParametres param = wave->parametres.at(i);
+             if(i > ui->tableWidget->rowCount() - 1)
+             {
+                 ui->tableWidget->insertRow(i);
+             }
+             ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(param.sec)));
+             ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(param.shift)));
+        }
+    }
+    ui->calculateButton->setEnabled(true);
 }
 
 void MainWindow::on_calculateButton_clicked()
@@ -505,4 +494,15 @@ void MainWindow::addBigLables(QGraphicsScene *scene, QString label, float x, flo
     text->setPlainText(label);
     text->setPos(x , y - 2);
     scene->addItem(text);
+}
+
+void MainWindow::on_buttonBrowse_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("DAT Files (*.dat)"));
+    ui->fileNameEdit->setText(fileName);
+
+    if(!ui->fileNameEdit->text().isNull())
+    {
+        setInputParametres();
+    }
 }

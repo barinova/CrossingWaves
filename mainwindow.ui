@@ -23,776 +23,841 @@
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="tabWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>921</width>
-      <height>721</height>
-     </rect>
-    </property>
-    <property name="tabPosition">
-     <enum>QTabWidget::North</enum>
-    </property>
-    <property name="tabShape">
-     <enum>QTabWidget::Rounded</enum>
-    </property>
-    <property name="currentIndex">
-     <number>4</number>
-    </property>
-    <property name="elideMode">
-     <enum>Qt::ElideNone</enum>
-    </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Input Parametres</string>
-     </attribute>
-     <widget class="QPushButton" name="calculateButton">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>10</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
       </property>
-      <property name="text">
-       <string>Calculate</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="openButton">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>40</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-     <widget class="QTableWidget" name="tableWidget">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>10</y>
-        <width>241</width>
-        <height>421</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>201</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="columnCount">
-       <number>2</number>
-      </property>
-      <column>
-       <property name="text">
-        <string>Sec</string>
-       </property>
-       <property name="textAlignment">
-        <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Shift</string>
-       </property>
-       <property name="textAlignment">
-        <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-       </property>
-      </column>
-     </widget>
-     <widget class="QPushButton" name="browseButton">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>10</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Browse</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="fileNameEdit">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>231</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Result Parametres</string>
-     </attribute>
-     <widget class="QTableWidget" name="tableWidgetResults">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>881</width>
-        <height>581</height>
-       </rect>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <column>
-       <property name="text">
-        <string>Type</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>A+</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>A-</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>H</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Position</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Asymmetry(Vert)</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Asymmetry(Hor)</string>
-       </property>
-      </column>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>Waves</string>
-     </attribute>
-     <widget class="QGraphicsView" name="graphicsView">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>881</width>
-        <height>341</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>Heights' Diagram</string>
-     </attribute>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>171</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>-down-zero-crossing wave heights</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>161</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>-up-zero-crossing wave heights</string>
-      </property>
-     </widget>
-     <widget class="QGraphicsView" name="graphicsViewZDC">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>731</width>
-        <height>192</height>
-       </rect>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-     <widget class="QGraphicsView" name="graphicsViewZUC">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>250</y>
-        <width>731</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>30</y>
-        <width>91</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Height 1/3</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>250</y>
-        <width>91</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Height 1/3</string>
-      </property>
-     </widget>
-     <widget class="QTextBrowser" name="textBrowserSignificantZDC">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>50</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-     </widget>
-     <widget class="QTextBrowser" name="textBrowserSignificantZUC">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>270</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>80</y>
-        <width>91</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Significant Height</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>300</y>
-        <width>91</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Significant Height</string>
-      </property>
-     </widget>
-     <widget class="QTextBrowser" name="textBrowserSignificantZDCSign">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>100</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-     </widget>
-     <widget class="QTextBrowser" name="textBrowserSignificantZUCSign">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>320</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineZDC">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>60</y>
-        <width>51</width>
-        <height>2</height>
-       </rect>
-      </property>
-      <property name="frame">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineZDCSign">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>110</y>
-        <width>51</width>
-        <height>2</height>
-       </rect>
-      </property>
-      <property name="frame">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineZUC">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>280</y>
-        <width>51</width>
-        <height>2</height>
-       </rect>
-      </property>
-      <property name="frame">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineZUCSign">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>330</y>
-        <width>51</width>
-        <height>2</height>
-       </rect>
-      </property>
-      <property name="frame">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_6">
-     <attribute name="title">
-      <string>Heights' Probability</string>
-     </attribute>
-     <widget class="QTabWidget" name="tabWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>881</width>
-        <height>631</height>
-       </rect>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="tab_7">
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
+      <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>-down-zero-crossing waves</string>
+        <string>Input Parametres</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox">
+       <widget class="QPushButton" name="calculateButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>30</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Calculate</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>241</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>201</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="columnCount">
+         <number>2</number>
+        </property>
+        <column>
+         <property name="text">
+          <string>Sec</string>
+         </property>
+         <property name="textAlignment">
+          <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Shift</string>
+         </property>
+         <property name="textAlignment">
+          <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+         </property>
+        </column>
+       </widget>
+       <widget class="QLineEdit" name="fileNameEdit">
         <property name="geometry">
          <rect>
           <x>0</x>
+          <y>0</y>
+          <width>911</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777214</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonBrowse">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>60</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Result Parametres</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableWidgetResults">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
           <y>10</y>
-          <width>671</width>
-          <height>591</height>
+          <width>881</width>
+          <height>581</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <column>
+         <property name="text">
+          <string>Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>A+</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>A-</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>H</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Position</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Asymmetry(Vert)</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Asymmetry(Hor)</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Waves</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QGraphicsView" name="graphicsView">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Heights' Diagram</string>
+       </attribute>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>171</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-down-zero-crossing wave heights</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>230</y>
+          <width>161</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-up-zero-crossing wave heights</string>
+        </property>
+       </widget>
+       <widget class="QGraphicsView" name="graphicsViewZDC">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>731</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QGraphicsView" name="graphicsViewZUC">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>250</y>
+          <width>731</width>
+          <height>201</height>
+         </rect>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>30</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Height 1/3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>250</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Height 1/3</string>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="textBrowserSignificantZDC">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>50</y>
+          <width>81</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="textBrowserSignificantZUC">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>270</y>
+          <width>81</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>80</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Significant Height</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>300</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Significant Height</string>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="textBrowserSignificantZDCSign">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>100</y>
+          <width>81</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+       </widget>
+       <widget class="QTextBrowser" name="textBrowserSignificantZUCSign">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>320</y>
+          <width>81</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineZDC">
+        <property name="geometry">
+         <rect>
+          <x>840</x>
+          <y>60</y>
+          <width>51</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineZDCSign">
+        <property name="geometry">
+         <rect>
+          <x>840</x>
+          <y>110</y>
+          <width>51</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineZUC">
+        <property name="geometry">
+         <rect>
+          <x>840</x>
+          <y>280</y>
+          <width>51</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineZUCSign">
+        <property name="geometry">
+         <rect>
+          <x>840</x>
+          <y>330</y>
+          <width>51</width>
+          <height>2</height>
+         </rect>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>Heights' Probability</string>
+       </attribute>
+       <widget class="QTabWidget" name="tabWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>881</width>
+          <height>631</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tab_7">
+         <attribute name="title">
+          <string>-down-zero-crossing waves</string>
+         </attribute>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>671</width>
+            <height>591</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>-down-zero-crossing waves</string>
+          </property>
+          <widget class="QGraphicsView" name="graphicsViewExceedingZDCLogTeorExper">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>320</y>
+             <width>641</width>
+             <height>261</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QGraphicsView" name="graphicsViewExceedingZDCTeorExper">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>641</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QLabel" name="label_13">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>90</y>
+            <width>281</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>teoretical exceedance probability</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineE">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>120</y>
+            <width>163</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineT">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>50</y>
+            <width>161</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_14">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>20</y>
+            <width>281</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>experimental exceedance probability</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_8">
+         <attribute name="title">
+          <string>-up-zero-crossing waves</string>
+         </attribute>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>671</width>
+            <height>591</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>-up-zero-crossing waves</string>
+          </property>
+          <widget class="QGraphicsView" name="graphicsViewExceedingZUCTeorExper">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>641</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QGraphicsView" name="graphicsViewExceedingZUCLogTeorExper">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>320</y>
+             <width>641</width>
+             <height>261</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QLabel" name="label_15">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>90</y>
+            <width>281</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>teoretical exceedance probability</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineE_2">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>120</y>
+            <width>163</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineT_2">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>50</y>
+            <width>161</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_16">
+          <property name="geometry">
+           <rect>
+            <x>680</x>
+            <y>20</y>
+            <width>281</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>experimental exceedance probability</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>Clouds</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>431</width>
+          <height>581</height>
          </rect>
         </property>
         <property name="title">
          <string>-down-zero-crossing waves</string>
         </property>
-        <widget class="QGraphicsView" name="graphicsViewExceedingZDCLogTeorExper">
+        <widget class="QGraphicsView" name="graphicsViewCloudsZDCA">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>401</width>
+           <height>251</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QGraphicsView" name="graphicsViewCloudsZDCL">
          <property name="geometry">
           <rect>
            <x>10</x>
            <y>320</y>
-           <width>641</width>
-           <height>261</height>
+           <width>401</width>
+           <height>251</height>
           </rect>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
         </widget>
-        <widget class="QGraphicsView" name="graphicsViewExceedingZDCTeorExper">
+        <widget class="QLabel" name="label_9">
          <property name="geometry">
           <rect>
            <x>10</x>
            <y>20</y>
-           <width>641</width>
-           <height>281</height>
+           <width>181</width>
+           <height>16</height>
           </rect>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         <property name="text">
+          <string>Vertical Asymmetry</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_11">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>300</y>
+           <width>181</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Hoizontal Asymmetry</string>
          </property>
         </widget>
        </widget>
-       <widget class="QLabel" name="label_13">
+       <widget class="QGroupBox" name="groupBox_4">
         <property name="geometry">
          <rect>
-          <x>680</x>
-          <y>90</y>
-          <width>281</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>teoretical exceedance probability</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineE">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>120</y>
-          <width>163</width>
-          <height>2</height>
-         </rect>
-        </property>
-        <property name="frame">
-         <bool>false</bool>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineT">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>50</y>
-          <width>161</width>
-          <height>2</height>
-         </rect>
-        </property>
-        <property name="frame">
-         <bool>false</bool>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_14">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>20</y>
-          <width>281</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>experimental exceedance probability</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="tab_8">
-       <attribute name="title">
-        <string>-up-zero-crossing waves</string>
-       </attribute>
-       <widget class="QGroupBox" name="groupBox_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
+          <x>450</x>
           <y>10</y>
-          <width>671</width>
-          <height>591</height>
+          <width>431</width>
+          <height>581</height>
          </rect>
         </property>
         <property name="title">
          <string>-up-zero-crossing waves</string>
         </property>
-        <widget class="QGraphicsView" name="graphicsViewExceedingZUCTeorExper">
+        <widget class="QGraphicsView" name="graphicsViewCloudsZUCA">
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>20</y>
-           <width>641</width>
-           <height>281</height>
+           <y>40</y>
+           <width>401</width>
+           <height>251</height>
           </rect>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
         </widget>
-        <widget class="QGraphicsView" name="graphicsViewExceedingZUCLogTeorExper">
+        <widget class="QGraphicsView" name="graphicsViewCloudsZUCL">
          <property name="geometry">
           <rect>
            <x>10</x>
            <y>320</y>
-           <width>641</width>
-           <height>261</height>
+           <width>401</width>
+           <height>251</height>
           </rect>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </widget>
+        <widget class="QLabel" name="label_10">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>181</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Vertical Asymmetry</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>300</y>
+           <width>181</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Horizontal Asymmetry</string>
          </property>
         </widget>
        </widget>
-       <widget class="QLabel" name="label_15">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>90</y>
-          <width>281</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>teoretical exceedance probability</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineE_2">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>120</y>
-          <width>163</width>
-          <height>2</height>
-         </rect>
-        </property>
-        <property name="frame">
-         <bool>false</bool>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineT_2">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>50</y>
-          <width>161</width>
-          <height>2</height>
-         </rect>
-        </property>
-        <property name="frame">
-         <bool>false</bool>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_16">
-        <property name="geometry">
-         <rect>
-          <x>680</x>
-          <y>20</y>
-          <width>281</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>experimental exceedance probability</string>
-        </property>
-       </widget>
       </widget>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab_5">
-     <attribute name="title">
-      <string>Clouds</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>431</width>
-        <height>581</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>-down-zero-crossing waves</string>
-      </property>
-      <widget class="QGraphicsView" name="graphicsViewCloudsZDCA">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>40</y>
-         <width>401</width>
-         <height>251</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QGraphicsView" name="graphicsViewCloudsZDCL">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>320</y>
-         <width>401</width>
-         <height>251</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_9">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>181</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Vertical Asymmetry</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_11">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>300</y>
-         <width>181</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Hoizontal Asymmetry</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_4">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>10</y>
-        <width>431</width>
-        <height>581</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>-up-zero-crossing waves</string>
-      </property>
-      <widget class="QGraphicsView" name="graphicsViewCloudsZUCA">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>40</y>
-         <width>401</width>
-         <height>251</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QGraphicsView" name="graphicsViewCloudsZUCL">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>320</y>
-         <width>401</width>
-         <height>251</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_10">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>181</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Vertical Asymmetry</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>300</y>
-         <width>181</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Horizontal Asymmetry</string>
-       </property>
-      </widget>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>941</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayoutMenuBar"/>
-   </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>924</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave_All"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave_All">
+   <property name="text">
+    <string>Save All</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>461</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOpen</sender>
+   <signal>triggered()</signal>
+   <receiver>buttonBrowse</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>124</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -9,9 +9,10 @@
 #include <QSystemTrayIcon>
 #include <QGraphicsTextItem>
 #include <QDebug>
+#include <QMenu>
+#include <QMenuBar>
 #include "ui_mainwindow.h"
 #include <math.h>
-#include "cdragdropmenu.h"
 
 enum typeDelta{ X, Y};
 
@@ -39,9 +40,7 @@ public:
     ~MainWindow();
     
 private slots:
-    void on_browseButton_clicked();
-
-    void on_openButton_clicked();
+    void on_buttonBrowse_clicked();
 
     void on_calculateButton_clicked();
 
@@ -51,6 +50,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void getGraph();
+    void setInputParametres();
     void addHorizontalLines(float height, float width, QGraphicsScene *scene);
     void renderingTroughsAndRidges(QGraphicsScene *scene);
     void addText(QGraphicsScene *scene, float x, float y, QString label, Qt::GlobalColor color, double size);
