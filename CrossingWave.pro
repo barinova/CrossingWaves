@@ -12,11 +12,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     ccrossingwave.cpp \
-    cloadfile.cpp
+    cloadfile.cpp \
+    csavefile.cpp
 
 HEADERS  += mainwindow.h \
     ccrossingwave.h \
-    cloadfile.h
+    cloadfile.h \
+    csavefile.h
 
 FORMS    += mainwindow.ui
 

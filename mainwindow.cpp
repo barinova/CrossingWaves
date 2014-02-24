@@ -506,3 +506,100 @@ void MainWindow::on_buttonBrowse_clicked()
         setInputParametres();
     }
 }
+
+
+
+//Zoom
+void MainWindow::zoomEvent(QGraphicsView *graphic, zoom typeZoom)
+{
+    graphic->setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
+    double scaleFactor = 1.15;
+    //zoom on == 0
+    if(typeZoom)
+    {
+        graphic->scale(scaleFactor, scaleFactor);
+    }
+    else
+    {
+        graphic->scale(1.0 / scaleFactor, 1.0 / scaleFactor);
+    }
+}
+
+void MainWindow::on_buttonZoomOn_clicked()
+{
+    zoomEvent(ui->graphicsView, ZoomOn);
+}
+
+void MainWindow::on_buttonZoomOut_clicked()
+{
+    zoomEvent(ui->graphicsView, ZoomOut);
+}
+
+void MainWindow::on_buttonZoomOnHeightsZDC_clicked()
+{
+    zoomEvent(ui->graphicsViewZDC, ZoomOn);
+}
+
+void MainWindow::on_buttonZoomOutHeightsZDC_clicked()
+{
+    zoomEvent(ui->graphicsViewZDC, ZoomOut);
+}
+
+void MainWindow::on_buttonZoomOnZUC_clicked()
+{
+    zoomEvent(ui->graphicsViewExceedingZUCTeorExper, ZoomOn);
+}
+
+void MainWindow::on_buttonZoomOutZUC_clicked()
+{
+    zoomEvent(ui->graphicsViewExceedingZUCTeorExper, ZoomOut);
+}
+
+void MainWindow::on_buttonZoomOnZUCLog_clicked()
+{
+    zoomEvent(ui->graphicsViewExceedingZUCLogTeorExper, ZoomOn);
+}
+
+void MainWindow::on_buttonZoomOutZUCLog_clicked()
+{
+    zoomEvent(ui->graphicsViewExceedingZUCLogTeorExper, ZoomOut);
+}
+
+void MainWindow::on_buttonZoomOnZDC_clicked()
+{
+     zoomEvent(ui->graphicsViewExceedingZDCTeorExper, ZoomOn);
+}
+
+void MainWindow::on_buttonZoomOutZDC_clicked()
+{
+    zoomEvent(ui->graphicsViewExceedingZDCTeorExper, ZoomOut);
+}
+
+void MainWindow::on_buttonZoomOnZDCLog_clicked()
+{
+    zoomEvent(ui->graphicsViewExceedingZDCLogTeorExper, ZoomOn);
+}
+
+void MainWindow::on_buttonZoomOutZDCLog_clicked()
+{
+    zoomEvent(ui->graphicsViewExceedingZDCLogTeorExper, ZoomOut);
+}
+
+void MainWindow::on_buttonZoomOnHeightsZUC_clicked()
+{
+    zoomEvent(ui->graphicsViewZUC, ZoomOn);
+}
+
+void MainWindow::on_buttonZoomOutHeightsZUC_clicked()
+{
+    zoomEvent(ui->graphicsViewZUC, ZoomOut);
+}
+
+void MainWindow::on_buttonSaveAll_clicked()
+{
+    CSaveFile *file = new CSaveFile();
+    for(int i(0); i < ui->tabWidget->count(); i++)
+    {
+       // file->AddFile(ui->graphicsView);
+    }
+}
