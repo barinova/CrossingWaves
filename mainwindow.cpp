@@ -114,7 +114,7 @@ void MainWindow::getGraph()
         scene->addLine(first.sec * 7, -2, first.sec * 7, 2, axis);
     }
     //horizontal lines
-    addHorizontalLines(scene->height()/2, second.sec, scene);
+    addHorizontalLines(scene->height()/2, scene->width(), scene);
     addGraphicsAxis(scene,"x","h",- scene->height(), scene->height());
     renderingTroughsAndRidges(scene);
 }
@@ -127,8 +127,8 @@ void MainWindow::addHorizontalLines(float height, float width, QGraphicsScene* s
     pen.setWidth(1);
     for(int i(0); i < height; i+=15)
     {
-        scene->addLine( 0, i , width * 15 , i , pen);
-        scene->addLine( 0, -i , width* 15 , -i , pen);
+        scene->addLine( 0, i , width , i , pen);
+        scene->addLine( 0, -i , width, -i , pen);
     }
 }
 
@@ -289,13 +289,13 @@ void MainWindow::renderingProbabilityList(QList<probability> list, QGraphicsView
     qDebug("H   ExperP   TeorP\n");
 
     penE.setColor(QColor(0xFF, 0x9F, 0x00));
-    penE.setWidth(2);
+    penE.setWidth(1.25);
     penT.setColor(QColor(0x66, 0xCC, 0xFF));
-    penT.setWidth(2);
+    penT.setWidth(1.25);
     penCr.setColor(QColor(0x00, 0xFF, 0xCC));
-    penCr.setWidth(2);
+    penCr.setWidth(1.25);
     penTr.setColor(QColor(0xFF, 0xCC, 0x00));
-    penTr.setWidth(2);
+    penTr.setWidth(1.25);
 
     //addBigLables(sceneTeorExper, "Probability", 10, - 100, 2);
     //addBigLables(sceneTeorExperLog, "Probability",  10,  20, 2);
@@ -372,7 +372,7 @@ void MainWindow::getProbNormalGraph(QGraphicsScene* scene, QList<float> &prev, f
     if(prev.count() != 0)
     {
         scene->addLine(prev.at(0)* 100, - prev.at(1)* 100, param.H * 100, - p * 100, pen);
-        scene->addEllipse(prev.at(0)* 100, -prev.at(1)* 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
+        scene->addEllipse(param.H * 100, - p * 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
     }
     else
     {
@@ -391,7 +391,7 @@ void MainWindow::getProbLogGraph(QGraphicsScene* scene,QList<float> &prev, float
     if(prev.count()!=0)
     {
         scene->addLine(prev.at(0)* 100, - prev.at(1)* 100, param.H * 100, - log10((double)p) * 100, pen);
-        scene->addEllipse(prev.at(0)* 100, - prev.at(1)* 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
+        scene->addEllipse(param.H * 100, - log10((double)p) * 100, 2, 2, QPen(),QBrush(Qt::SolidPattern));
     }
     else
     {
@@ -598,8 +598,13 @@ void MainWindow::on_buttonZoomOutHeightsZUC_clicked()
 void MainWindow::on_buttonSaveAll_clicked()
 {
     CSaveFile *file = new CSaveFile();
-    for(int i(0); i < ui->tabWidget->count(); i++)
-    {
-       // file->AddFile(ui->graphicsView);
-    }
+
+    file->AddFile(ui->graphicsView->scene(), "Wave");
+    file->AddFile(ui->graphicsViewZDC->scene(), "-down-zero-crossing Heights");
+    file->AddFile(ui->graphicsViewZUC->scene(), "-up-zero-crossing Heights");
+    file->AddFile(ui->graphicsViewExceedingZDCTeorExper->scene(), "Probability Exceeding -down-zero-crossing");
+    file->AddFile(ui->graphicsViewExceedingZUCTeorExper->scene(), "Probability Exceeding -up-zero-crossing");
+    file->AddFile(ui->graphicsViewExceedingZDCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
+    file->AddFile(ui->graphicsViewExceedingZUCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
+    file->SaveAll();
 }

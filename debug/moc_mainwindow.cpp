@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Tue 25. Feb 02:45:27 2014
+** Created: Wed 26. Feb 01:17:07 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,29 +32,30 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
-      39,   11,   11,   11, 0x08,
-      76,   11,   11,   11, 0x08,
-     112,   11,   11,   11, 0x08,
-     145,   11,   11,   11, 0x08,
-     177,   11,   11,   11, 0x08,
-     207,   11,   11,   11, 0x08,
-     236,   11,   11,   11, 0x08,
-     269,   11,   11,   11, 0x08,
-     301,   11,   11,   11, 0x08,
-     331,   11,   11,   11, 0x08,
-     360,   11,   11,   11, 0x08,
-     397,   11,   11,   11, 0x08,
-     433,   11,   11,   11, 0x08,
-     460,   11,   11,   11, 0x08,
-     486,   11,   11,   11, 0x08,
-     512,   11,   11,   11, 0x08,
-     541,   11,   11,   11, 0x08,
+      41,   11,   11,   11, 0x08,
+      68,   11,   11,   11, 0x08,
+      94,   11,   11,   11, 0x08,
+     131,   11,   11,   11, 0x08,
+     167,   11,   11,   11, 0x08,
+     200,   11,   11,   11, 0x08,
+     232,   11,   11,   11, 0x08,
+     262,   11,   11,   11, 0x08,
+     291,   11,   11,   11, 0x08,
+     324,   11,   11,   11, 0x08,
+     356,   11,   11,   11, 0x08,
+     386,   11,   11,   11, 0x08,
+     415,   11,   11,   11, 0x08,
+     452,   11,   11,   11, 0x08,
+     488,   11,   11,   11, 0x08,
+     515,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0on_buttonSaveAll_clicked()\0"
+    "MainWindow\0\0on_calculateButton_clicked()\0"
+    "on_buttonSaveAll_clicked()\0"
+    "on_buttonBrowse_clicked()\0"
     "on_buttonZoomOutHeightsZUC_clicked()\0"
     "on_buttonZoomOnHeightsZUC_clicked()\0"
     "on_buttonZoomOutZDCLog_clicked()\0"
@@ -69,9 +70,6 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_buttonZoomOnHeightsZDC_clicked()\0"
     "on_buttonZoomOut_clicked()\0"
     "on_buttonZoomOn_clicked()\0"
-    "on_buttonBrowse_clicked()\0"
-    "on_calculateButton_clicked()\0"
-    "on_saveAllButton_clicked()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -103,27 +101,26 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: on_buttonSaveAll_clicked(); break;
-        case 1: on_buttonZoomOutHeightsZUC_clicked(); break;
-        case 2: on_buttonZoomOnHeightsZUC_clicked(); break;
-        case 3: on_buttonZoomOutZDCLog_clicked(); break;
-        case 4: on_buttonZoomOnZDCLog_clicked(); break;
-        case 5: on_buttonZoomOutZDC_clicked(); break;
-        case 6: on_buttonZoomOnZDC_clicked(); break;
-        case 7: on_buttonZoomOutZUCLog_clicked(); break;
-        case 8: on_buttonZoomOnZUCLog_clicked(); break;
-        case 9: on_buttonZoomOutZUC_clicked(); break;
-        case 10: on_buttonZoomOnZUC_clicked(); break;
-        case 11: on_buttonZoomOutHeightsZDC_clicked(); break;
-        case 12: on_buttonZoomOnHeightsZDC_clicked(); break;
-        case 13: on_buttonZoomOut_clicked(); break;
-        case 14: on_buttonZoomOn_clicked(); break;
-        case 15: on_buttonBrowse_clicked(); break;
-        case 16: on_calculateButton_clicked(); break;
-        case 17: on_saveAllButton_clicked(); break;
+        case 0: on_calculateButton_clicked(); break;
+        case 1: on_buttonSaveAll_clicked(); break;
+        case 2: on_buttonBrowse_clicked(); break;
+        case 3: on_buttonZoomOutHeightsZUC_clicked(); break;
+        case 4: on_buttonZoomOnHeightsZUC_clicked(); break;
+        case 5: on_buttonZoomOutZDCLog_clicked(); break;
+        case 6: on_buttonZoomOnZDCLog_clicked(); break;
+        case 7: on_buttonZoomOutZDC_clicked(); break;
+        case 8: on_buttonZoomOnZDC_clicked(); break;
+        case 9: on_buttonZoomOutZUCLog_clicked(); break;
+        case 10: on_buttonZoomOnZUCLog_clicked(); break;
+        case 11: on_buttonZoomOutZUC_clicked(); break;
+        case 12: on_buttonZoomOnZUC_clicked(); break;
+        case 13: on_buttonZoomOutHeightsZDC_clicked(); break;
+        case 14: on_buttonZoomOnHeightsZDC_clicked(); break;
+        case 15: on_buttonZoomOut_clicked(); break;
+        case 16: on_buttonZoomOn_clicked(); break;
         default: ;
         }
-        _id -= 18;
+        _id -= 17;
     }
     return _id;
 }

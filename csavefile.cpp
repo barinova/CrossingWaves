@@ -2,27 +2,32 @@
 
 CSaveFile::CSaveFile()
 {
+    printer.setResolution(QPrinter::HighResolution);
+    printer.setPageSize(QPrinter::A4);
+    printer.setOrientation(QPrinter::Portrait);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName("CrossingWaves.pdf");
+    p.begin(&printer);
 }
 
-bool CSaveFile::AddFile(QGraphicsScene *scene)
+bool CSaveFile::AddFile(QGraphicsScene *scene, QString txt)
 {
-    QPrinter printer(QPrinter::HighResolution);
-           printer.setPageSize(QPrinter::A4);
-           printer.setOrientation(QPrinter::Portrait);
-           printer.setOutputFormat(QPrinter::PdfFormat);
-           printer.setOutputFileName("test.pdf"); // file will be created in your build directory (where debug/release directories are)
+    QFont font;// = p.font() ;
+    font.setPointSize(0.1);
+    p.setFont(font);
+    p.drawText(1, 1, txt);
+     //if(!p.begin(&printer))
+     //{
+     //    return false;
+     //}
+     if(scene != NULL)
 
-           QPainter p;
+     scene->render(&p);
 
-           if(!p.begin(&printer))
-           {
-               return false;
-           }
-           scene->render(&p);
-           p.end();}
-
-bool CSaveFile::AddFile(QString txt)
-{}
+     printer.newPage();
+ }
 
 bool CSaveFile::SaveAll()
-{}
+{
+         p.end();
+}

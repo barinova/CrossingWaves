@@ -48,7 +48,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_buttonSaveAll_clicked();
+
+    void on_calculateButton_clicked();
+    void on_buttonSaveAll_clicked(); 
+    void on_buttonBrowse_clicked();
+
     void on_buttonZoomOutHeightsZUC_clicked();
     void on_buttonZoomOnHeightsZUC_clicked();
     void on_buttonZoomOutZDCLog_clicked();
@@ -63,10 +67,6 @@ private slots:
     void on_buttonZoomOnHeightsZDC_clicked();
     void on_buttonZoomOut_clicked();
     void on_buttonZoomOn_clicked();
-    void on_buttonBrowse_clicked();
-
-    void on_calculateButton_clicked();
-    void on_saveAllButton_clicked();
 
 
 private:
