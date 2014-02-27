@@ -212,8 +212,8 @@ void CCrossingWave::setListProbabilities(QList<float> listHeights, QList<float> 
         obj.H = listHeights.at(i);
         obj.experP = waveFrequency;
         //obj.teorP = exp(-obj.H * obj.H/(8*h.at(type).sigma * h.at(type).sigma));
-        obj.crestP = exp(-pow(2 * listCrestA.at(i), 2)/(2 * h.at(type).sigma * h.at(type).sigma));
-        obj.troughP = exp(-pow(2 * listThroughA.at(i), 2)/(2 *h.at(type).sigma * h.at(type).sigma));
+        obj.crestP = exp(- 2 * pow(2 * listCrestA.at(i)/h.at(type).significantHeight, 2));
+        obj.troughP = exp(- 2 * pow(2 * listThroughA.at(i)/h.at(type).significantHeight, 2));
         obj.teorP = exp(-obj.H * obj.H/(2*h.at(type).sigma * h.at(type).sigma));
         if(type == ZDC)
         {

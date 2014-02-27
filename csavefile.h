@@ -11,8 +11,8 @@ public:
     bool SaveAll();
     bool AddFile(QGraphicsScene *graphic, QString txt);
 private:
-    QPainter p;
-    QPrinter printer;
+    QPainter *p;
+    QPrinter *printer;
 };
 
 #endif // CSAVEFILE_H

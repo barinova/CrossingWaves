@@ -598,7 +598,7 @@
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_7">
          <attribute name="title">
@@ -771,6 +771,60 @@
           </property>
           <property name="text">
            <string>experimental exceedance probability</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_17">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>140</y>
+            <width>181</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>exceedance probability of wave height
+(crest)</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineCr">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>180</y>
+            <width>161</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_18">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>200</y>
+            <width>181</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>exceedance probability of wave height
+(trough)</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineTr">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>250</y>
+            <width>161</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
           </property>
          </widget>
         </widget>
@@ -947,6 +1001,60 @@
            <string>experimental exceedance probability</string>
           </property>
          </widget>
+         <widget class="QLineEdit" name="lineTr_2">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>250</y>
+            <width>161</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_19">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>200</y>
+            <width>181</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>exceedance probability of wave height
+(trough)</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_20">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>140</y>
+            <width>181</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>exceedance probability of wave height
+(crest)</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineCr_2">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>180</y>
+            <width>161</width>
+            <height>2</height>
+           </rect>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -1096,7 +1204,14 @@
     <addaction name="actionAbout"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionCalculate"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuOptions"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
@@ -1116,6 +1231,11 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionCalculate">
+   <property name="text">
+    <string>Calculate</string>
    </property>
   </action>
  </widget>
@@ -1156,7 +1276,7 @@
   </connection>
   <connection>
    <sender>actionSave_All</sender>
-   <signal>toggled(bool)</signal>
+   <signal>triggered()</signal>
    <receiver>buttonSaveAll</receiver>
    <slot>click()</slot>
    <hints>
@@ -1167,6 +1287,22 @@
     <hint type="destinationlabel">
      <x>308</x>
      <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCalculate</sender>
+   <signal>triggered()</signal>
+   <receiver>calculateButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>308</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>308</x>
+     <y>93</y>
     </hint>
    </hints>
   </connection>

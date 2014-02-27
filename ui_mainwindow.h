@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed 26. Feb 01:15:56 2014
+** Created: Fri 28. Feb 01:15:21 2014
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -39,6 +39,7 @@ public:
     QAction *actionSave_All;
     QAction *actionAbout;
     QAction *actionExit;
+    QAction *actionCalculate;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout_2;
     QTabWidget *tabWidget;
@@ -94,6 +95,10 @@ public:
     QLineEdit *lineE;
     QLineEdit *lineT;
     QLabel *label_14;
+    QLabel *label_17;
+    QLineEdit *lineCr;
+    QLabel *label_18;
+    QLineEdit *lineTr;
     QWidget *tab_8;
     QGroupBox *groupBox_2;
     QGraphicsView *graphicsViewExceedingZUCTeorExper;
@@ -108,6 +113,10 @@ public:
     QLineEdit *lineE_2;
     QLineEdit *lineT_2;
     QLabel *label_16;
+    QLineEdit *lineTr_2;
+    QLabel *label_19;
+    QLabel *label_20;
+    QLineEdit *lineCr_2;
     QWidget *tab_5;
     QGroupBox *groupBox_3;
     QGraphicsView *graphicsViewCloudsZDCA;
@@ -122,6 +131,7 @@ public:
     QStatusBar *statusBar;
     QMenuBar *menuBar;
     QMenu *menuFile;
+    QMenu *menuOptions;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -138,6 +148,8 @@ public:
         actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        actionCalculate = new QAction(MainWindow);
+        actionCalculate->setObjectName(QString::fromUtf8("actionCalculate"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayout_2 = new QHBoxLayout(centralWidget);
@@ -369,6 +381,20 @@ public:
         label_14 = new QLabel(tab_7);
         label_14->setObjectName(QString::fromUtf8("label_14"));
         label_14->setGeometry(QRect(890, 20, 181, 16));
+        label_17 = new QLabel(tab_7);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setGeometry(QRect(890, 140, 181, 21));
+        lineCr = new QLineEdit(tab_7);
+        lineCr->setObjectName(QString::fromUtf8("lineCr"));
+        lineCr->setGeometry(QRect(890, 180, 161, 2));
+        lineCr->setFrame(false);
+        label_18 = new QLabel(tab_7);
+        label_18->setObjectName(QString::fromUtf8("label_18"));
+        label_18->setGeometry(QRect(890, 200, 181, 31));
+        lineTr = new QLineEdit(tab_7);
+        lineTr->setObjectName(QString::fromUtf8("lineTr"));
+        lineTr->setGeometry(QRect(890, 250, 161, 2));
+        lineTr->setFrame(false);
         tabWidget_2->addTab(tab_7, QString());
         tab_8 = new QWidget();
         tab_8->setObjectName(QString::fromUtf8("tab_8"));
@@ -415,6 +441,20 @@ public:
         label_16 = new QLabel(tab_8);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(890, 20, 181, 16));
+        lineTr_2 = new QLineEdit(tab_8);
+        lineTr_2->setObjectName(QString::fromUtf8("lineTr_2"));
+        lineTr_2->setGeometry(QRect(890, 250, 161, 2));
+        lineTr_2->setFrame(false);
+        label_19 = new QLabel(tab_8);
+        label_19->setObjectName(QString::fromUtf8("label_19"));
+        label_19->setGeometry(QRect(890, 200, 181, 31));
+        label_20 = new QLabel(tab_8);
+        label_20->setObjectName(QString::fromUtf8("label_20"));
+        label_20->setGeometry(QRect(890, 140, 181, 21));
+        lineCr_2 = new QLineEdit(tab_8);
+        lineCr_2->setObjectName(QString::fromUtf8("lineCr_2"));
+        lineCr_2->setGeometry(QRect(890, 180, 161, 2));
+        lineCr_2->setFrame(false);
         tabWidget_2->addTab(tab_8, QString());
         tabWidget->addTab(tab_6, QString());
         tab_5 = new QWidget();
@@ -462,21 +502,26 @@ public:
         menuBar->setGeometry(QRect(0, 0, 1117, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
+        menuOptions = new QMenu(menuBar);
+        menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuFile->menuAction());
+        menuBar->addAction(menuOptions->menuAction());
         menuFile->addAction(actionOpen);
         menuFile->addAction(actionSave_All);
         menuFile->addAction(actionAbout);
         menuFile->addAction(actionExit);
+        menuOptions->addAction(actionCalculate);
 
         retranslateUi(MainWindow);
         QObject::connect(actionExit, SIGNAL(triggered()), MainWindow, SLOT(close()));
         QObject::connect(actionOpen, SIGNAL(triggered()), buttonBrowse, SLOT(click()));
-        QObject::connect(actionSave_All, SIGNAL(toggled(bool)), buttonSaveAll, SLOT(click()));
+        QObject::connect(actionSave_All, SIGNAL(triggered()), buttonSaveAll, SLOT(click()));
+        QObject::connect(actionCalculate, SIGNAL(triggered()), calculateButton, SLOT(click()));
 
         tabWidget->setCurrentIndex(4);
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -489,6 +534,7 @@ public:
         actionSave_All->setText(QApplication::translate("MainWindow", "Save All", 0, QApplication::UnicodeUTF8));
         actionAbout->setText(QApplication::translate("MainWindow", "About", 0, QApplication::UnicodeUTF8));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", 0, QApplication::UnicodeUTF8));
+        actionCalculate->setText(QApplication::translate("MainWindow", "Calculate", 0, QApplication::UnicodeUTF8));
         calculateButton->setText(QApplication::translate("MainWindow", "Calculate", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Sec", 0, QApplication::UnicodeUTF8));
@@ -538,6 +584,10 @@ public:
         buttonZoomOnZDC->setText(QApplication::translate("MainWindow", "+", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0, QApplication::UnicodeUTF8));
         label_14->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));
+        label_17->setText(QApplication::translate("MainWindow", "exceedance probability of wave height\n"
+"(crest)", 0, QApplication::UnicodeUTF8));
+        label_18->setText(QApplication::translate("MainWindow", "exceedance probability of wave height\n"
+"(trough)", 0, QApplication::UnicodeUTF8));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
         groupBoxZoomProbZUC->setTitle(QApplication::translate("MainWindow", "Zoom", 0, QApplication::UnicodeUTF8));
@@ -548,6 +598,10 @@ public:
         buttonZoomOnZUCLog->setText(QApplication::translate("MainWindow", "+", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("MainWindow", "teoretical exceedance probability", 0, QApplication::UnicodeUTF8));
         label_16->setText(QApplication::translate("MainWindow", "experimental exceedance probability", 0, QApplication::UnicodeUTF8));
+        label_19->setText(QApplication::translate("MainWindow", "exceedance probability of wave height\n"
+"(trough)", 0, QApplication::UnicodeUTF8));
+        label_20->setText(QApplication::translate("MainWindow", "exceedance probability of wave height\n"
+"(crest)", 0, QApplication::UnicodeUTF8));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_8), QApplication::translate("MainWindow", "-up-zero-crossing waves", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Heights' Probability", 0, QApplication::UnicodeUTF8));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "-down-zero-crossing waves", 0, QApplication::UnicodeUTF8));
@@ -558,6 +612,7 @@ public:
         label_12->setText(QApplication::translate("MainWindow", "Horizontal Asymmetry", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Clouds", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
+        menuOptions->setTitle(QApplication::translate("MainWindow", "Options", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

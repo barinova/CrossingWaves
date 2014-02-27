@@ -11,6 +11,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineZDC->setStyleSheet("QLineEdit{background: lightGray;}");
     ui->lineZUCSign->setStyleSheet("QLineEdit{background: darkGray;}");
     ui->lineZUC->setStyleSheet("QLineEdit{background: lightGray;}");
+
+    ui->lineT->setStyleSheet("QLineEdit{background-color:#FF9F00;}");
+    ui->lineE->setStyleSheet("QLineEdit{background-color:#66CCFF}");
+    ui->lineT_2->setStyleSheet("QLineEdit{background-color:#FF9F00;}");
+    ui->lineE_2->setStyleSheet("QLineEdit{background-color:#66CCFF}");
+    ui->lineCr->setStyleSheet("QLineEdit{background-color:#00FFCC;}");
+    ui->lineTr->setStyleSheet("QLineEdit{background-color:#FFCC00}");
+    ui->lineCr_2->setStyleSheet("QLineEdit{background-color:#00FFCC;}");
+    ui->lineTr_2->setStyleSheet("QLineEdit{background-color:#FFCC00}");
+
     wave = new CCrossingWave();
 
 }
@@ -262,10 +272,6 @@ void MainWindow::renderingProbability()
                              ui->graphicsViewExceedingZDCLogTeorExper,0);
     renderingProbabilityList(wave->listProbabilitiesZUC, ui->graphicsViewExceedingZUCTeorExper,
                              ui->graphicsViewExceedingZUCLogTeorExper, 1);
-    ui->lineT->setStyleSheet("QLineEdit{background-color:#FF9F00;}");
-    ui->lineE->setStyleSheet("QLineEdit{background-color:#66CCFF}");
-    ui->lineT_2->setStyleSheet("QLineEdit{background-color:#FF9F00;}");
-    ui->lineE_2->setStyleSheet("QLineEdit{background-color:#66CCFF}");
     //ui->graphicsViewExceedingZDCTeorExper->setSceneRect(0, 0, ui->graphicsViewExceedingZDCTeorExper->width(), - ui->graphicsViewExceedingZDCTeorExper->height()/2 - 10);
     //ui->graphicsViewExceedingZUCTeorExper->setSceneRect(0, 0, ui->graphicsViewExceedingZUCTeorExper->width(), - ui->graphicsViewExceedingZUCTeorExper->height()/2 - 10);
     //ui->graphicsViewExceedingZDCLogTeorExper->setSceneRect(0, 0, ui->graphicsViewExceedingZDCLogTeorExper->width(), ui->graphicsViewExceedingZDCLogTeorExper->height()/2 - 50);
