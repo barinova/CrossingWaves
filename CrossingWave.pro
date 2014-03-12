@@ -13,12 +13,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     ccrossingwave.cpp \
     cloadfile.cpp \
-    csavefile.cpp
+    csavefile.cpp \
+    cmatlabproc.cpp
 
 HEADERS  += mainwindow.h \
     ccrossingwave.h \
     cloadfile.h \
-    csavefile.h
+    csavefile.h \
+    cmatlabproc.h
 
 FORMS    += mainwindow.ui
 

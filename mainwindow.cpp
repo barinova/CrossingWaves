@@ -502,17 +502,6 @@ void MainWindow::addBigLables(QGraphicsScene *scene, QString label, float x, flo
     scene->addItem(text);
 }
 
-void MainWindow::on_buttonBrowse_clicked()
-{
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("DAT Files (*.dat)"));
-    ui->fileNameEdit->setText(fileName);
-
-    if(!ui->fileNameEdit->text().isNull())
-    {
-        setInputParametres();
-    }
-}
-
 
 
 //Zoom
@@ -613,4 +602,56 @@ void MainWindow::on_buttonSaveAll_clicked()
     file->AddFile(ui->graphicsViewExceedingZDCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
     file->AddFile(ui->graphicsViewExceedingZUCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
     file->SaveAll();
+}
+
+void MainWindow::on_buttonBrowse_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("DAT Files (*.dat)"));
+    ui->fileNameEdit->setText(fileName);
+
+    if(!ui->fileNameEdit->text().isNull())
+    {
+        setInputParametres();
+    }
+}
+
+void MainWindow::on_buttonBrowse_M_clicked()
+{
+   QFileInfoList fileList;
+   QString fileName =  QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+                                                  "",
+                                                  QFileDialog::ShowDirsOnly
+                                                  | QFileDialog::DontResolveSymlinks);
+    // fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("MAT Files (*.mat)"));
+    ui->fileNameEdit->setText(fileName);
+
+    fileName.replace(QChar('\\'), QChar('/') );
+    fileList = contentList(fileName);qDebug() << fileName;
+
+    QMessageBox reply;
+    reply.setText("Please browse your Matlab places for convertation");
+    reply.setStandardButtons(QMessageBox::Ok);
+    reply.show();
+    if (reply.exec() == QMessageBox::Ok && fileName != "" && !fileList.empty())
+    {
+        QString matlabPath = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("EXE Files (*.exe)"));
+        qDebug() << matlabPath;
+        if(!matlabPath.isEmpty())
+        {
+            CMatLabProc* matFile = new CMatLabProc(matlabPath, fileName, fileList);
+        }
+    }
+    else
+    {
+        reply.close();
+    }
+
+}
+
+ QFileInfoList MainWindow::contentList(QString fileName)
+{
+    QStringList nameFilter;
+    QDir dir(fileName);
+    nameFilter << "*.mat";
+    return dir.entryInfoList(nameFilter, QDir::Files);
 }

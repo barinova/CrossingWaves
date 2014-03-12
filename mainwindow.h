@@ -15,7 +15,8 @@
 #include "ui_mainwindow.h"
 #include <math.h>
 #include "csavefile.h"
-
+#include "cmatlabproc.h"
+#include <QMessageBox>
 //#include <QMouseEvent>
 //#include <QWheelEvent>
 
@@ -49,6 +50,7 @@ public:
 
 private slots:
 
+    void on_buttonBrowse_M_clicked();
     void on_calculateButton_clicked();
     void on_buttonSaveAll_clicked(); 
     void on_buttonBrowse_clicked();
@@ -90,6 +92,7 @@ private:
     void addGraphicsOrtLine(QGraphicsScene *scene, int point, typeDelta delta, Qt::GlobalColor color, QString label, int width);
     void addVerticalLines(QGraphicsScene* scene, QString label, int x, int y);
     void addBigLables(QGraphicsScene *scene, QString label, float x, float y, int size);
+     QFileInfoList contentList(QString fileName);
     template <typename T> int sign(T val);
 };
 

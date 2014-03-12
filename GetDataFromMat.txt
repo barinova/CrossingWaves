@@ -1,0 +1,6 @@
+function [outX, outT, outS] = GetDataFromMat(filePath, fileIn, fileOut)
+cd(filePath);
+load(fileIn);
+outX = x;
+outT = t;
+outS = s;

@@ -36,7 +36,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -134,10 +134,26 @@
          </rect>
         </property>
         <property name="text">
-         <string>Browse</string>
+         <string>Open</string>
         </property>
        </widget>
        <widget class="QPushButton" name="buttonSaveAll">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>120</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save All</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonBrowse_M">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>260</x>
@@ -147,14 +163,9 @@
          </rect>
         </property>
         <property name="text">
-         <string>Save All</string>
+         <string>Open</string>
         </property>
        </widget>
-       <zorder>buttonBrowse</zorder>
-       <zorder>buttonSaveAll</zorder>
-       <zorder>calculateButton</zorder>
-       <zorder>tableWidget</zorder>
-       <zorder>fileNameEdit</zorder>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -1199,7 +1210,15 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpen"/>
+    <widget class="QMenu" name="menuOpen">
+     <property name="title">
+      <string>Open</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionOpen_M_File"/>
+     <addaction name="actionDAT_File"/>
+    </widget>
+    <addaction name="menuOpen"/>
     <addaction name="actionSave_All"/>
     <addaction name="actionAbout"/>
     <addaction name="actionExit"/>
@@ -1213,11 +1232,6 @@
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
   </widget>
-  <action name="actionOpen">
-   <property name="text">
-    <string>Open</string>
-   </property>
-  </action>
   <action name="actionSave_All">
    <property name="text">
     <string>Save All</string>
@@ -1238,6 +1252,16 @@
     <string>Calculate</string>
    </property>
   </action>
+  <action name="actionOpen_M_File">
+   <property name="text">
+    <string>MAT-File</string>
+   </property>
+  </action>
+  <action name="actionDAT_File">
+   <property name="text">
+    <string>DAT-File</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
@@ -1255,22 +1279,6 @@
     <hint type="destinationlabel">
      <x>461</x>
      <y>356</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionOpen</sender>
-   <signal>triggered()</signal>
-   <receiver>buttonBrowse</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>309</x>
-     <y>124</y>
     </hint>
    </hints>
   </connection>
@@ -1297,12 +1305,44 @@
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>308</x>
-     <y>93</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>308</x>
      <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOpen_M_File</sender>
+   <signal>triggered()</signal>
+   <receiver>buttonBrowse_M</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>308</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>308</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDAT_File</sender>
+   <signal>triggered()</signal>
+   <receiver>buttonBrowse</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>308</x>
+     <y>123</y>
     </hint>
    </hints>
   </connection>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri 28. Feb 01:15:21 2014
+** Created: Wed 12. Mar 01:03:47 2014
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,11 +35,12 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionOpen;
     QAction *actionSave_All;
     QAction *actionAbout;
     QAction *actionExit;
     QAction *actionCalculate;
+    QAction *actionOpen_M_File;
+    QAction *actionDAT_File;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout_2;
     QTabWidget *tabWidget;
@@ -49,6 +50,7 @@ public:
     QLineEdit *fileNameEdit;
     QPushButton *buttonBrowse;
     QPushButton *buttonSaveAll;
+    QPushButton *buttonBrowse_M;
     QWidget *tab_2;
     QTableWidget *tableWidgetResults;
     QWidget *tab_3;
@@ -131,6 +133,7 @@ public:
     QStatusBar *statusBar;
     QMenuBar *menuBar;
     QMenu *menuFile;
+    QMenu *menuOpen;
     QMenu *menuOptions;
 
     void setupUi(QMainWindow *MainWindow)
@@ -140,8 +143,6 @@ public:
         MainWindow->resize(1117, 714);
         MainWindow->setMinimumSize(QSize(924, 0));
         MainWindow->setDockOptions(QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks);
-        actionOpen = new QAction(MainWindow);
-        actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         actionSave_All = new QAction(MainWindow);
         actionSave_All->setObjectName(QString::fromUtf8("actionSave_All"));
         actionAbout = new QAction(MainWindow);
@@ -150,6 +151,10 @@ public:
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
         actionCalculate = new QAction(MainWindow);
         actionCalculate->setObjectName(QString::fromUtf8("actionCalculate"));
+        actionOpen_M_File = new QAction(MainWindow);
+        actionOpen_M_File->setObjectName(QString::fromUtf8("actionOpen_M_File"));
+        actionDAT_File = new QAction(MainWindow);
+        actionDAT_File->setObjectName(QString::fromUtf8("actionDAT_File"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayout_2 = new QHBoxLayout(centralWidget);
@@ -194,13 +199,12 @@ public:
         buttonBrowse->setGeometry(QRect(260, 60, 75, 23));
         buttonSaveAll = new QPushButton(tab);
         buttonSaveAll->setObjectName(QString::fromUtf8("buttonSaveAll"));
-        buttonSaveAll->setGeometry(QRect(260, 90, 75, 23));
+        buttonSaveAll->setGeometry(QRect(260, 120, 75, 23));
+        buttonBrowse_M = new QPushButton(tab);
+        buttonBrowse_M->setObjectName(QString::fromUtf8("buttonBrowse_M"));
+        buttonBrowse_M->setEnabled(true);
+        buttonBrowse_M->setGeometry(QRect(260, 90, 75, 23));
         tabWidget->addTab(tab, QString());
-        buttonBrowse->raise();
-        buttonSaveAll->raise();
-        calculateButton->raise();
-        tableWidget->raise();
-        fileNameEdit->raise();
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tableWidgetResults = new QTableWidget(tab_2);
@@ -502,25 +506,31 @@ public:
         menuBar->setGeometry(QRect(0, 0, 1117, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
+        menuOpen = new QMenu(menuFile);
+        menuOpen->setObjectName(QString::fromUtf8("menuOpen"));
         menuOptions = new QMenu(menuBar);
         menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuOptions->menuAction());
-        menuFile->addAction(actionOpen);
+        menuFile->addAction(menuOpen->menuAction());
         menuFile->addAction(actionSave_All);
         menuFile->addAction(actionAbout);
         menuFile->addAction(actionExit);
+        menuOpen->addSeparator();
+        menuOpen->addAction(actionOpen_M_File);
+        menuOpen->addAction(actionDAT_File);
         menuOptions->addAction(actionCalculate);
 
         retranslateUi(MainWindow);
         QObject::connect(actionExit, SIGNAL(triggered()), MainWindow, SLOT(close()));
-        QObject::connect(actionOpen, SIGNAL(triggered()), buttonBrowse, SLOT(click()));
         QObject::connect(actionSave_All, SIGNAL(triggered()), buttonSaveAll, SLOT(click()));
         QObject::connect(actionCalculate, SIGNAL(triggered()), calculateButton, SLOT(click()));
+        QObject::connect(actionOpen_M_File, SIGNAL(triggered()), buttonBrowse_M, SLOT(click()));
+        QObject::connect(actionDAT_File, SIGNAL(triggered()), buttonBrowse, SLOT(click()));
 
-        tabWidget->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(1);
 
 
@@ -530,18 +540,20 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Crossing Waves", 0, QApplication::UnicodeUTF8));
-        actionOpen->setText(QApplication::translate("MainWindow", "Open", 0, QApplication::UnicodeUTF8));
         actionSave_All->setText(QApplication::translate("MainWindow", "Save All", 0, QApplication::UnicodeUTF8));
         actionAbout->setText(QApplication::translate("MainWindow", "About", 0, QApplication::UnicodeUTF8));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", 0, QApplication::UnicodeUTF8));
         actionCalculate->setText(QApplication::translate("MainWindow", "Calculate", 0, QApplication::UnicodeUTF8));
+        actionOpen_M_File->setText(QApplication::translate("MainWindow", "MAT-File", 0, QApplication::UnicodeUTF8));
+        actionDAT_File->setText(QApplication::translate("MainWindow", "DAT-File", 0, QApplication::UnicodeUTF8));
         calculateButton->setText(QApplication::translate("MainWindow", "Calculate", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Sec", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Shift", 0, QApplication::UnicodeUTF8));
-        buttonBrowse->setText(QApplication::translate("MainWindow", "Browse", 0, QApplication::UnicodeUTF8));
+        buttonBrowse->setText(QApplication::translate("MainWindow", "Open", 0, QApplication::UnicodeUTF8));
         buttonSaveAll->setText(QApplication::translate("MainWindow", "Save All", 0, QApplication::UnicodeUTF8));
+        buttonBrowse_M->setText(QApplication::translate("MainWindow", "Open", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Input Parametres", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidgetResults->horizontalHeaderItem(0);
         ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Type", 0, QApplication::UnicodeUTF8));
@@ -612,6 +624,7 @@ public:
         label_12->setText(QApplication::translate("MainWindow", "Horizontal Asymmetry", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Clouds", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
+        menuOpen->setTitle(QApplication::translate("MainWindow", "Open", 0, QApplication::UnicodeUTF8));
         menuOptions->setTitle(QApplication::translate("MainWindow", "Options", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
