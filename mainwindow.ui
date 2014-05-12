@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1117</width>
+    <width>1109</width>
     <height>714</height>
    </rect>
   </property>
@@ -1202,7 +1202,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1117</width>
+     <width>1109</width>
      <height>21</height>
     </rect>
    </property>
@@ -1210,15 +1210,7 @@
     <property name="title">
      <string>File</string>
     </property>
-    <widget class="QMenu" name="menuOpen">
-     <property name="title">
-      <string>Open</string>
-     </property>
-     <addaction name="separator"/>
-     <addaction name="actionOpen_M_File"/>
-     <addaction name="actionDAT_File"/>
-    </widget>
-    <addaction name="menuOpen"/>
+    <addaction name="actionOpen"/>
     <addaction name="actionSave_All"/>
     <addaction name="actionAbout"/>
     <addaction name="actionExit"/>
@@ -1260,6 +1252,11 @@
   <action name="actionDAT_File">
    <property name="text">
     <string>DAT-File</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
    </property>
   </action>
  </widget>
@@ -1321,8 +1318,8 @@
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>308</x>
-     <y>153</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>308</x>
@@ -1332,6 +1329,22 @@
   </connection>
   <connection>
    <sender>actionDAT_File</sender>
+   <signal>triggered()</signal>
+   <receiver>buttonBrowse</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>308</x>
+     <y>123</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOpen</sender>
    <signal>triggered()</signal>
    <receiver>buttonBrowse</receiver>
    <slot>click()</slot>

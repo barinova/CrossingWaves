@@ -20,10 +20,17 @@ void CCrossingWave::clearAll()
     this->parametres.clear();
 }
 
-bool CCrossingWave::readingFile(std::string pathToFile)
+bool CCrossingWave::readingFile(QString pathToFile)
 {
     CLoadFile *file = new CLoadFile();
-    parametres = file->loadFile(pathToFile);
+	if (pathToFile.endsWith(".dat"))
+	{
+		parametres = file->loadDatFile(pathToFile.toStdString());
+	}
+	else if(pathToFile.endsWith(".mat"))
+	{
+		parametres = file->loadMatFile(pathToFile.toStdString());
+	}
     return (parametres.size() > 0 ? true : false);
 }
 
@@ -117,10 +124,12 @@ float CCrossingWave::significantHeights(QList<float> listHeights)
 {
     //wtf
     float tmp = listHeights.count();
+	float tmpHeight;
     float heightSignificant;
     for(int i(0); i < listHeights.count(); i++)
     {
-        heightSignificant += listHeights.at(i);
+		tmpHeight = listHeights.at(i);
+        heightSignificant += tmpHeight;
     }
 
     tmp = heightSignificant/listHeights.count();
@@ -160,10 +169,10 @@ bool CCrossingWave::calculateWaves()
     int parametresSize = parametres.size();
     waveParametres first, second;
     waveEntity newWave;
-    for(int i(0); i < parametresSize; i++)
+    for(int i(0); i < parametresSize - 1; i++)
    {
         first = parametres.at(i);
-        second = parametres.at(i+1);
+        second = parametres.at(i+1);//exception
         if(first.shift * second.shift < 0)
         {
             //FOR NULL!!!!!

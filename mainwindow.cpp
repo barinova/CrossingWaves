@@ -34,7 +34,7 @@ void MainWindow::setInputParametres()
 {
     wave->clearAll();
     ui->tableWidget->clearContents();
-    if(wave->readingFile(ui->fileNameEdit->text().toStdString()))
+    if(wave->readingFile(ui->fileNameEdit->text()))
     {
         //table
         for(int i(0); i < wave->parametres.size(); i++)
@@ -257,10 +257,17 @@ void MainWindow::diagramHeights()
     addGraphicsAxis(sceneZDC, "H", "N", - ui->graphicsViewZDC->height(), ui->graphicsViewZDC->height());
     addGraphicsAxis(sceneZUC, "H", "N", - ui->graphicsViewZDC->height(), ui->graphicsViewZDC->height());
 
-    addGraphicsOrtLine(sceneZDC,  wave->h.at(0).significantHeight * 20, X,Qt::darkGray, "significant height", 1);
-    addGraphicsOrtLine(sceneZDC,  wave->h.at(0).heightOneThird * 20, X,Qt::lightGray, "height one third", 1);
-    addGraphicsOrtLine(sceneZUC,  wave->h.at(1).significantHeight * 20, X,Qt::darkGray, "significant height", 1);
-    addGraphicsOrtLine(sceneZUC,  wave->h.at(1).heightOneThird * 20, X,Qt::lightGray, "height one third", 1);
+	if (!wave->h.isEmpty())
+	{
+		addGraphicsOrtLine(sceneZDC,  wave->h.at(0).significantHeight * 20, X,Qt::darkGray, "significant height", 1);
+		addGraphicsOrtLine(sceneZDC,  wave->h.at(0).heightOneThird * 20, X,Qt::lightGray, "height one third", 1);
+		addGraphicsOrtLine(sceneZUC,  wave->h.at(1).significantHeight * 20, X,Qt::darkGray, "significant height", 1);
+		addGraphicsOrtLine(sceneZUC,  wave->h.at(1).heightOneThird * 20, X,Qt::lightGray, "height one third", 1);
+	}
+	else
+	{
+		qDebug("wave->h is Empty");
+	}
 }
 
 
@@ -592,21 +599,21 @@ void MainWindow::on_buttonZoomOutHeightsZUC_clicked()
 
 void MainWindow::on_buttonSaveAll_clicked()
 {
-    CSaveFile *file = new CSaveFile();
+    CSaveFile *file = new CSaveFile(false);
 
-    file->AddFile(ui->graphicsView->scene(), "Wave");
-    file->AddFile(ui->graphicsViewZDC->scene(), "-down-zero-crossing Heights");
-    file->AddFile(ui->graphicsViewZUC->scene(), "-up-zero-crossing Heights");
-    file->AddFile(ui->graphicsViewExceedingZDCTeorExper->scene(), "Probability Exceeding -down-zero-crossing");
-    file->AddFile(ui->graphicsViewExceedingZUCTeorExper->scene(), "Probability Exceeding -up-zero-crossing");
-    file->AddFile(ui->graphicsViewExceedingZDCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
-    file->AddFile(ui->graphicsViewExceedingZUCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
-    file->SaveAll();
+    file->AddPNGFile(ui->graphicsView->scene(), "Wave");
+    file->AddPNGFile(ui->graphicsViewZDC->scene(), "-down-zero-crossing Heights");
+    file->AddPNGFile(ui->graphicsViewZUC->scene(), "-up-zero-crossing Heights");
+    file->AddPNGFile(ui->graphicsViewExceedingZDCTeorExper->scene(), "Probability Exceeding -down-zero-crossing");
+    file->AddPNGFile(ui->graphicsViewExceedingZUCTeorExper->scene(), "Probability Exceeding -up-zero-crossing");
+    file->AddPNGFile(ui->graphicsViewExceedingZDCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
+    file->AddPNGFile(ui->graphicsViewExceedingZUCLogTeorExper->scene(), "Probability Exceeding -up-zero-crossing(Lg)");
+    //file->SaveAll();
 }
 
 void MainWindow::on_buttonBrowse_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("DAT Files (*.dat)"));
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("DAT Files (*.dat *.mat)"));
     ui->fileNameEdit->setText(fileName);
 
     if(!ui->fileNameEdit->text().isNull())

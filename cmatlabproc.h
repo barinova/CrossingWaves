@@ -1,10 +1,10 @@
 #ifndef MATLABPROC_H
 #define MATLABPROC_H
 #include <QProcess>
-#include <QMainWindow>
+#include <QtWidgets/QMainWindow>
 #include <QTimer>
 #include <QDir>
-#include <QMessageBox>
+#include <QtWidgets/QMessageBox>
 #include <QDebug>
 
 class CMatLabProc: public QMainWindow

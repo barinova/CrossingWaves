@@ -5,6 +5,7 @@
 //#include <cstdlib>
 #include <math.h>
 #include <QList>
+#include <qstring.h>
 #include "cloadfile.h"
 
 enum typeCrossing { ZDC, ZUC};
@@ -56,7 +57,7 @@ public:
     std::map<int, waveEntity> calculatingWaves;
     QList<heights> h;
     CCrossingWave();
-    bool readingFile(std::string pathToFile);
+    bool readingFile(QString pathToFile);
     bool calculateWaves();
     void setProbabilities();
     void clearAll();

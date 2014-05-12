@@ -1,22 +1,22 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QGraphicsView>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QGraphicsView>
 #include "ccrossingwave.h"
-#include <QFileDialog>
+#include <QtWidgets/QFileDialog>
 #include <QPainter>
 #include <QPointF>
-#include <QSystemTrayIcon>
-#include <QGraphicsTextItem>
+#include <QtWidgets/QSystemTrayIcon>
+#include <QtWidgets/QGraphicsTextItem>
 #include <QDebug>
-#include <QMenu>
-#include <QMenuBar>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMenuBar>
 #include "ui_mainwindow.h"
 #include <math.h>
 #include "csavefile.h"
 #include "cmatlabproc.h"
-#include <QMessageBox>
+#include <QtWidgets/QMessageBox>
 //#include <QMouseEvent>
 //#include <QWheelEvent>
 

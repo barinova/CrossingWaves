@@ -39,6 +39,8 @@ bool CMatLabProc::start()
 bool CMatLabProc::stop()
 {
     proc.terminate();
+
+    return true;
 }
 
 void CMatLabProc::openSlots()

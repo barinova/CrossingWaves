@@ -1,15 +1,16 @@
 #ifndef CSAVEFILE_H
 #define CSAVEFILE_H
-#include <QGraphicsScene>
-#include <QPrinter>
+#include <QtWidgets/QGraphicsScene>
+#include <QtPrintSupport/QPrinter>
 #include <QPainter>
 
 class CSaveFile
 {
 public:
-    CSaveFile();
+    CSaveFile(bool typePDF);
     bool SaveAll();
-    bool AddFile(QGraphicsScene *graphic, QString txt);
+    bool AddPDFFile(QGraphicsScene *graphic, QString txt);
+	bool AddPNGFile(QGraphicsScene *graphic, QString txt);
 private:
     QPainter *p;
     QPrinter *printer;

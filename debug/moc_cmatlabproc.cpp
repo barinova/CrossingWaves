@@ -1,26 +1,48 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cmatlabproc.h'
 **
-** Created: Wed 12. Mar 01:04:35 2014
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.2.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
 #include "../cmatlabproc.h"
+#include <QtCore/qbytearray.h>
+#include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cmatlabproc.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.7.0. It"
+#elif Q_MOC_OUTPUT_REVISION != 67
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+struct qt_meta_stringdata_CMatLabProc_t {
+    QByteArrayData data[5];
+    char stringdata[35];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    offsetof(qt_meta_stringdata_CMatLabProc_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
+    )
+static const qt_meta_stringdata_CMatLabProc_t qt_meta_stringdata_CMatLabProc = {
+    {
+QT_MOC_LITERAL(0, 0, 11),
+QT_MOC_LITERAL(1, 12, 6),
+QT_MOC_LITERAL(2, 19, 0),
+QT_MOC_LITERAL(3, 20, 3),
+QT_MOC_LITERAL(4, 24, 9)
+    },
+    "CMatLabProc\0stream\0\0err\0openSlots\0"
+};
+#undef QT_MOC_LITERAL
+
 static const uint qt_meta_data_CMatLabProc[] = {
 
  // content:
-       5,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        3,   14, // methods
@@ -30,36 +52,48 @@ static const uint qt_meta_data_CMatLabProc[] = {
        0,       // flags
        0,       // signalCount
 
- // slots: signature, parameters, type, tag, flags
-      13,   12,   12,   12, 0x08,
-      22,   12,   12,   12, 0x08,
-      28,   12,   12,   12, 0x08,
+ // slots: name, argc, parameters, tag, flags
+       1,    0,   29,    2, 0x08,
+       3,    0,   30,    2, 0x08,
+       4,    0,   31,    2, 0x08,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_CMatLabProc[] = {
-    "CMatLabProc\0\0stream()\0err()\0openSlots()\0"
-};
+void CMatLabProc::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        CMatLabProc *_t = static_cast<CMatLabProc *>(_o);
+        switch (_id) {
+        case 0: _t->stream(); break;
+        case 1: _t->err(); break;
+        case 2: _t->openSlots(); break;
+        default: ;
+        }
+    }
+    Q_UNUSED(_a);
+}
 
 const QMetaObject CMatLabProc::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_CMatLabProc,
-      qt_meta_data_CMatLabProc, 0 }
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_CMatLabProc.data,
+      qt_meta_data_CMatLabProc,  qt_static_metacall, 0, 0}
 };
 
-#ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &CMatLabProc::getStaticMetaObject() { return staticMetaObject; }
-#endif //Q_NO_DATA_RELOCATION
 
 const QMetaObject *CMatLabProc::metaObject() const
 {
-    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
 void *CMatLabProc::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CMatLabProc))
+    if (!strcmp(_clname, qt_meta_stringdata_CMatLabProc.stringdata))
         return static_cast<void*>(const_cast< CMatLabProc*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
@@ -70,12 +104,12 @@ int CMatLabProc::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        switch (_id) {
-        case 0: stream(); break;
-        case 1: err(); break;
-        case 2: openSlots(); break;
-        default: ;
-        }
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 3;
     }
     return _id;

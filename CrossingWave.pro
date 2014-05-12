@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql printsupport
 TARGET = CrossingWave
 TEMPLATE = app
 
